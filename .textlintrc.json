@@ -1,0 +1,30 @@
+{
+  "plugins": {},
+  "filters": {
+    "comments": true
+  },
+  "rules": {
+    "preset-ja-spacing": {
+      "ja-space-between-half-and-full-width": {
+        "space": "always"
+      }
+    },
+    "preset-ja-technical-writing": {
+      "max-kanji-continuous-len": {
+        "allow": ["大技林製作委員会", "給与自己決定制度", "圧倒的成長環境"]
+      }
+    },
+    "@textlint-ja/preset-ai-writing": {
+      "ai-tech-writing-guideline": {
+        "severity": "info"
+      }
+    },
+    "spellcheck-tech-word": true,
+    "prh": {
+      "rulePaths": [
+        "./prh-rules/media/techbooster.yml",
+        "./prh-rules/media/yumemi-daigirin.yml"
+      ]
+    }
+  }
+}

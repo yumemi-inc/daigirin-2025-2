@@ -1,0 +1,35 @@
+{
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "cSpell.words": [
+    "baseservice",
+    "Bitrise",
+    "daigirin",
+    "docomo",
+    "foodpanda",
+    "hogehoge",
+    "Jetpack",
+    "kantoku",
+    "Keishin",
+    "nodenv",
+    "taichi",
+    "Qiita",
+    "STARPAY",
+    "SUNMI",
+    "Surile",
+    "techbook",
+    "techbooster",
+    "textlint",
+    "textlintignore",
+    "vivliostyle",
+    "WWDC",
+    "xcodebuild",
+    "xcresult",
+    "Xiaomi",
+    "Yokomaku",
+    "yumemi"
+  ]
+}
