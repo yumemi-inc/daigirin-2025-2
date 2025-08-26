@@ -10,7 +10,7 @@ class: exclude-hashira
 
 1. [はじめに](preface.html)
 1. [ゆめみ大技林製作委員会とは](preface.html)
-1. [PHPで始める振る舞い駆動開発(Behaviour-Driven Development)](uutan1108/index.html)
+1. [PHPで始める振る舞い駆動開発](uutan1108/index.html)
 1. [サンプル](sample_chapter.html)
 
 </nav>
