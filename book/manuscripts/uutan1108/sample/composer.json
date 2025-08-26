@@ -1,0 +1,27 @@
+{
+    "name": "uutan1108/bdd-sample",
+    "description": "BDDサンプルプロジェクト",
+    "type": "project",
+    "require": {
+        "php": ">=8.0"
+    },
+    "authors": [
+        {
+            "name": "うーたん"
+        }
+    ],
+    "require-dev": {
+        "behat/behat": "^3.23",
+        "phpunit/phpunit": "^12.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Uutan1108\\BddSample\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}

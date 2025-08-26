@@ -29,9 +29,11 @@ BDD における「振る舞い」は、顧客が求める具体的な価値で�
 
 BDD の概念を理解するために、具体的な例を見てみましょう。良い例と悪い例を比較することで、振る舞いを意識したテストの重要性が明確になります。
 
-### 良い例：振る舞いを意識したテスト
+### Gherkin の基本構造
 
 Gherkin は、BDD で使用するシナリオ記述フォーマットです。次のコードは、ウェブサイトの検索機能の振る舞いを記述しています。Feature、Scenario、Given、When、Then などのキーワードを使用して、ユーザーの行動と期待する結果を自然な日本語で表現しています。
+
+#### キーワードの説明
 
 | キーワード | 説明 |
 |------------|------|
@@ -42,45 +44,54 @@ Gherkin は、BDD で使用するシナリオ記述フォーマットです。�
 | **Then** | 期待する結果や検証項目を記述します。アクション実行後の期待される状態を表現します。 |
 | **And** | 前のステップと同じ種類のステップを追加する際に使用します。Given、When、Then の後に複数の条件や結果を記述できます。 |
 
-```gherkin
-Feature: ウェブサイトでの情報検索
-  As a 学習者
-  I can ウェブサイトでキーワード検索を実行する
-  so that 必要な技術情報を素早く見つけて学習効率を向上させる
+### 良い例：振る舞いを意識したテスト
 
-Scenario: 興味のある技術について検索する
-  Given ウェブサイトのトップページを開く
-  When "PHP" というキーワードで検索する
-  Then 検索結果に "PHP" が含まれていること
-  And 学習者が求める情報が表示されること
+```gherkin
+Feature: レジシステムでの商品購入
+  As a 店員
+  I can 商品をスキャンして合計金額を計算する
+  so that 顧客が正確な金額を確認できる
+
+  Scenario: 複数の商品を購入する
+    Given レジシステムを起動する
+    When "りんご" を "2" 個 スキャンする
+    And "みかん" を "1" 個 スキャンする
+    Then 合計金額は "400" 円 であること
 ```
+
+#### 良い例の特徴
 
 この例の特徴は次のとおりです。
 
-- `As a 学習者 / I can / so that` で明確にビジネス価値を表現
-- 技術的詳細（URL、HTTP ステータス、DOM 等）を一切含まない
-- 実際のユーザーの行動と期待や提供価値を表現
+- `As a 店員 / I can / so that` で明確にビジネス価値を表現
+- 技術的詳細（データベース接続、配列操作、メモリ管理等）を一切含まない
+- 実際の店員の行動と期待や提供価値を表現
 
 ### 悪い例：振る舞いを意識していないテスト
 
 ```gherkin
-Feature: ウェブサイトでの情報検索
-Scenario: 興味のある技術について検索する
-  Given データベースに接続する
-  And SQLクエリを準備する
-  When localhost:8080/search?q=PHPにアクセスする
-  And search.phpが実行される
-  Then HTTPステータス200が返る
-  And DOM要素".results"が1個存在する
+Feature: レジシステムでの商品購入
+
+  Scenario: 複数の商品を購入する
+    Given 配列$itemsを初期化する
+    And 商品価格の連想配列$pricesを作成する
+    When addItem("りんご", 2)メソッドを呼び出す
+    And addItem("みかん", 1)メソッドを呼び出す
+    Then 配列$itemsの要素数は2個であること
+    And getTotal()メソッドの戻り値は400であること
 ```
+
+#### 悪い例の問題点
 
 この例の問題点は次のとおりです。
 
-- 技術的詳細の過度な記述
-- 実際のユーザーは「検索ボックスに PHP と入力して検索ボタンを押す」のであり、URL に直接アクセスすることはない
-- ユーザーは「正常に動作する」ことを期待するが、DOM 構造を意識しない
+- 技術的詳細の過度な記述（配列、メソッド名、戻り値等）
+- 実際の店員は「商品をスキャンして合計金額を確認する」のであり、配列の要素数やメソッドの戻り値を直接確認することはない
+- 店員は「正確な合計金額が表示される」ことを期待するが、内部実装の詳細を意識しない
 
-このように、同じ機能をテストする場合でも、振る舞いを意識したテストとそうでないテストでは、顧客の視点に立った価値の表現に大きな差が生まれます。BDD では、技術的な実装詳細ではなく、顧客が求める具体的な価値に焦点を当ててテストを書くことが重要です。
+### 振る舞いを意識したテストの重要性
+
+このように、同じ機能をテストする場合でも、振る舞いを意識したテストとそうでないテストでは、顧客の視点に立った価値の表現に大きな差が生まれます。BDD では、技術的な実装詳細（配列操作、メソッド呼び出し等）ではなく、顧客が求める具体的な価値（正確な合計金額の計算）に焦点を当ててテストを書くことが重要です。
 
 ## PHPでBDDを実践する
 
@@ -94,8 +105,42 @@ PHP で BDD を実践するために、Behat、PHPUnit、Composer を使用し�
 
 ```bash
 # プロジェクトの初期化
-composer init
 
+まず、新しいディレクトリを作成し、その中でプロジェクトを初期化します。
+
+```bash
+# 新しいディレクトリを作成
+mkdir bdd-sample
+cd bdd-sample
+
+# プロジェクトの初期化（対話形式）
+composer init
+```
+
+`composer init`を実行すると、いくつかの質問が表示されます。以下のように回答してください：
+
+- **Package name**: `your-name/bdd-sample`（例：`john/bdd-sample`）
+- **Description**: `BDDサンプルプロジェクト`
+- **Author**: あなたの名前とメールアドレス
+- **Minimum Stability**: `stable`
+- **Package Type**: `project`
+- **License**: `MIT`
+- **Define dependencies interactively**: `no`
+- **Define dev dependencies interactively**: `no`
+- **Would you like to define your autoloader interactively**: `no`
+- **Do you confirm generation**: `yes`
+
+または、すべての設定を一度に指定する場合は以下のコマンドを使用できます：
+
+```bash
+composer init --name=your-name/bdd-sample --description="BDDサンプルプロジェクト" --type=project --require="php:>=8.0" --no-interaction
+```
+
+## 必要なパッケージのインストール
+
+次に、BDDとテストに必要なパッケージをインストールします。
+
+```bash
 # BDDフレームワークのBehatを開発依存としてインストール
 composer require --dev behat/behat
 
@@ -103,45 +148,70 @@ composer require --dev behat/behat
 composer require --dev phpunit/phpunit
 ```
 
+## Behatの初期化
+
+Behatを初期化して、必要なディレクトリとファイルを作成します。
+
+```bash
+# Behatの初期化
+vendor/bin/behat --init
+```
+
+このコマンドを実行すると、以下のディレクトリとファイルが作成されます：
+
+- `features/` - フィーチャーファイルを配置するディレクトリ
+- `features/bootstrap/` - コンテキストクラスを配置するディレクトリ
+- `features/bootstrap/FeatureContext.php` - デフォルトのコンテキストクラス
+
+## オートローダーの設定
+
+最後に、Composerのオートローダーを更新して、作成したクラスを読み込めるようにします。
+
+```bash
+# オートローダーの生成
+composer dump-autoload
+```
+
+## サンプルコードの実装
+
+それでは、実際にBDDのサンプルコードを実装していきましょう。
+
 ### フィーチャーファイルの作成
 
-`features/search.feature`ファイルを作成します。このファイルは、検索機能の振る舞いを Gherkin 形式で記述したテスト仕様書です。
+まず、`features/register.feature`ファイルを作成します。このファイルは、レジシステムの振る舞いを Gherkin 形式で記述したテスト仕様書です。
 
 ```gherkin
-Feature: ウェブサイトでの情報検索
-  As a 学習者
-  I can ウェブサイトでキーワード検索を実行する
-  so that 必要な技術情報を素早く見つけて学習効率を向上させる
+Feature: レジシステムでの商品購入
+  As a 店員
+  I can 商品をスキャンして合計金額を計算する
+  so that 顧客が正確な金額を確認できる
 
-Scenario: 興味のある技術について検索する
-  Given ウェブサイトのトップページを開く
-  When "PHP" というキーワードで検索する
-  Then 検索結果に "PHP" が含まれていること
-  And 学習者が求める情報が表示されること
-
-Scenario: 存在しないキーワードで検索する
-  Given ウェブサイトのトップページを開く
-  When "存在しない技術" というキーワードで検索する
-  Then "検索結果が見つかりませんでした" というメッセージが表示されること
+  Scenario: 複数の商品を購入する
+    Given レジシステムを起動する
+    When "りんご" を "2" 個 スキャンする
+    And "みかん" を "1" 個 スキャンする
+    Then 合計金額は "400" 円 であること
 ```
 
 ### コンテキストクラスの実装
 
-`features/bootstrap/FeatureContext.php`ファイルを作成します。
+次に、`features/bootstrap/FeatureContext.php`ファイルを作成します。このファイルは、Gherkin で記述したステップを実際のテストコードに変換するものです。
 
-次のコードは、Gherkin で記述したステップを実際のテストコードに変換したものです。各メソッドには`@Given`、`@When`、`@Then`などのアノテーションが付いており、フィーチャーファイルのステップと対応しています。Selenium WebDriver を使用してブラウザの操作を自動化し、PHPUnit のアサーション機能で期待する結果を検証します。
+#### コードの概要
 
-各ステップで実行される技術的な処理の詳細は次のとおりです。
+次のコードは、Gherkin で記述したステップを実際のテストコードに変換したものです。各メソッドには`@Given`、`@When`、`@Then`などのアノテーションが付いており、フィーチャーファイルのステップと対応しています。シンプルなレジシステムのクラスを使用して、商品の追加と合計計算の動作を検証します。
 
-| ステップ | 技術的な処理内容 |
-|----------|------------------|
-| **Given ウェブサイトのトップページを開く** | Selenium WebDriverでChromeブラウザを起動し、指定されたURL（http://app:80）にアクセスします。環境変数からSeleniumサーバーのホストとポートを取得し、RemoteWebDriverインスタンスを作成します。 |
-| **When "PHP" というキーワードで検索する** | ページ内のname属性が"query"の入力フィールドを検索し、指定されたキーワード（"PHP"）を入力してから、フォームを送信します。`WebDriverBy::name()`を使用して要素を特定し、`sendKeys()`でテキスト入力、submit()でフォーム送信を実行します。 |
-| **Then 検索結果に "PHP" が含まれていること** | クラス名が"search-results"の要素を検索し、その要素内のテキスト内容を取得します。取得したテキストに指定されたキーワード（"PHP"）が含まれているかをPHPUnitのassertStringContainsString()で検証します。 |
-| **Then 学習者が求める情報が表示されること** | 検索結果エリア（クラス名"search-results"）の存在確認と、結果アイテム（クラス名"result-item"）の存在確認を行います。`assertNotNull()`で要素の存在を、assertGreaterThan()で結果件数が0より大きいことを検証します。 |
-| **Then 適切なメッセージが表示されること** | エラーメッセージ要素（クラス名"no-results-message"）の存在を確認します。assertNotNull()を使用して要素が表示されているかを検証します。 |
+#### 各ステップの処理内容
 
-実際の PHP コードは次のとおりです。
+| ステップ | 処理内容 |
+|----------|----------|
+| **Given レジシステムを起動する** | 新しいレジシステムのインスタンスを作成し、初期状態にします |
+| **When 商品をスキャンする** | 指定された商品と数量をレジシステムに追加します |
+| **Then 合計金額は X円 であること** | レジシステムの合計金額が期待する値と一致するかを検証します |
+
+#### テストコード（FeatureContext）
+
+Gherkin で記述したステップを実際のテストコードに変換したものです。
 
 ```php
 <?php
@@ -149,112 +219,192 @@ Scenario: 存在しないキーワードで検索する
 declare(strict_types=1);
 
 use Behat\Behat\Context\Context;
-use Behat\MinkExtension\Context\MinkContext;
-use Facebook\WebDriver\Remote\RemoteWebDriver;
-use Facebook\WebDriver\Remote\DesiredCapabilities;
-use Facebook\WebDriver\WebDriverBy;
-use Facebook\WebDriver\WebDriverElement;
 use PHPUnit\Framework\Assert;
+use Uutan1108\BddSample\RegisterSystem;
 
-class FeatureContext extends MinkContext implements Context
+class FeatureContext implements Context
 {
-    private ?RemoteWebDriver $driver = null;
+    private RegisterSystem $register;
 
     /**
-     * @Given ウェブサイトのトップページを開く
+     * @Given レジシステムを起動する
      */
-    public function openHomePage(): void
+    public function startRegisterSystem(): void
     {
-        try {
-            $host = getenv('SELENIUM_HOST') ?: 'localhost';
-            $port = getenv('SELENIUM_PORT') ?: '4444';
-            $serverUrl = "http://{$host}:{$port}";
-            $this->driver = RemoteWebDriver::create($serverUrl, DesiredCapabilities::chrome());
-            $this->driver->get('http://app:80');
-        } catch (\Exception $e) {
-            throw $e;
-        }
+        $this->register = new RegisterSystem();
     }
 
     /**
-     * @When :keyword というキーワードで検索する
+     * @When :item を :quantity 個 スキャンする
      */
-    public function searchWithKeyword(string $keyword): void
+    public function scanItem(string $item, int $quantity): void
     {
-        try {
-            $searchInput = $this->driver->findElement(WebDriverBy::name('query'));
-            $searchInput->sendKeys($keyword);
-            $searchInput->submit();
-        } catch (\Exception $e) {
-            throw $e;
-        }
+        $this->register->addItem($item, $quantity);
     }
 
     /**
-     * @Then 検索結果に :keyword が含まれていること
+     * @Then 合計金額は :amount 円 であること
      */
-    public function assertSearchResultsContain(string $keyword): void
+    public function assertTotalAmount(int $amount): void
     {
-        try {
-            // 検索結果エリアから検索
-            $searchResultsDiv = $this->driver->findElement(WebDriverBy::className('search-results'));
-            $content = $searchResultsDiv->getText();
-            Assert::assertStringContainsString($keyword, $content);
-        } catch (\Exception $e) {
-            throw $e;
-        }
-    }
-
-    /**
-     * @Then 学習者が求める情報が表示されること
-     */
-    public function assertLearnerInformationIsDisplayed(): void
-    {
-        try {
-            // 検索結果エリアが存在することを確認
-            $searchResultsDiv = $this->driver->findElement(WebDriverBy::className('search-results'));
-            Assert::assertNotNull($searchResultsDiv, '検索結果エリアが表示されていません');
-            
-            // 結果アイテムが存在することを確認
-            $resultItems = $this->driver->findElements(WebDriverBy::className('result-item'));
-            Assert::assertGreaterThan(0, count($resultItems), '検索結果が表示されていません');
-        } catch (\Exception $e) {
-            throw new \Exception('学習者に有用な情報が表示されていません: ' . $e->getMessage());
-        }
-    }
-
-    /**
-     * @Then :message というメッセージが表示されること
-     */
-    public function assertMessageIsDisplayed(string $message): void
-    {
-        try {
-            $errorMessageElement = $this->driver->findElement(WebDriverBy::className('no-results-message'));
-            Assert::assertNotNull($errorMessageElement, '適切なエラーメッセージが表示されていません');
-        } catch (\Exception $e) {
-            throw new \Exception('適切なメッセージの確認でエラーが発生しました: ' . $e->getMessage());
-        }
-    }
-
-    /**
-     * @AfterScenario
-     */
-    public function tearDown(): void
-    {
-        if ($this->driver) {
-            $this->driver->quit();
-        }
+        $actualTotal = $this->register->getTotal();
+        Assert::assertEquals($amount, $actualTotal, "合計金額が期待値と一致しません");
     }
 }
 ```
 
+### レジシステムクラスの実装
+
+最後に、`src/RegisterSystem.php`ファイルを作成します。このクラスは、実際のビジネスロジックを実装したレジシステムです。これはテスト対象となる実装コードです。
+
+#### コードの概要
+
+このクラスは、商品の追加と合計金額の計算を行うシンプルなレジシステムです。商品名と価格のマッピングを持ち、商品を追加すると自動的に合計金額が計算されます。
+
+#### 主な機能
+
+- **商品の追加**: `addItem()`メソッドで商品名と数量を指定して商品を追加
+- **合計金額の計算**: `getTotal()`メソッドで現在の商品の合計金額を取得
+- **価格管理**: 事前に定義された商品価格に基づいて計算
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Uutan1108\BddSample;
+
+use InvalidArgumentException;
+
+/**
+ * シンプルなレジシステムクラス
+ */
+class RegisterSystem
+{
+    private array $items = [];
+    private array $prices = [
+        'りんご' => 150,
+        'みかん' => 100,
+        'バナナ' => 200
+    ];
+
+    public function addItem(string $itemName, int $quantity): void
+    {
+        if (!isset($this->prices[$itemName])) {
+            throw new InvalidArgumentException("商品 {$itemName} の価格が設定されていません");
+        }
+
+        // 既存の商品がある場合は数量を追加
+        foreach ($this->items as &$item) {
+            if ($item['name'] === $itemName) {
+                $item['quantity'] += $quantity;
+                return;
+            }
+        }
+
+        // 新しい商品を追加
+        $this->items[] = [
+            'name' => $itemName,
+            'quantity' => $quantity,
+            'price' => $this->prices[$itemName]
+        ];
+    }
+
+    public function getTotal(): int
+    {
+        $total = 0;
+        foreach ($this->items as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        return $total;
+    }
+}
+```
+
+## ファイル構造
+
+作成したファイルの構造は以下のようになります：
+
+```
+bdd-sample/
+├── composer.json
+├── composer.lock
+├── vendor/
+├── features/
+│   ├── register.feature
+│   └── bootstrap/
+│       └── FeatureContext.php
+└── src/
+    └── RegisterSystem.php
+```
+
+## 動作確認
+
+作成したサンプルコードが正しく動作することを確認しましょう。
+
+```bash
+# Behatテストの実行
+vendor/bin/behat
+```
+
+実行結果：
+```
+Feature: レジシステムでの商品購入
+  As a 店員
+  I can 商品をスキャンして合計金額を計算する
+  so that 顧客が正確な金額を確認できる
+
+  Scenario: 複数の商品を購入する
+    Given レジシステムを起動する
+    When "りんご" を "2" 個 スキャンする
+    And "みかん" を "1" 個 スキャンする
+    Then 合計金額は "400" 円 であること
+
+1 個のシナリオ (1 個成功)
+4 個のステップ (4 個成功)
+0m0.01s
+```
+
+すべてのステップが成功し、レジシステムが期待通りに動作することが確認できました。
+
+### テスト結果の解説
+
+| ステップ | 処理内容 | 状態変化 |
+|----------|----------|----------|
+| **Given レジシステムを起動する** | 新しい`RegisterSystem`インスタンスが作成され、空の状態で初期化されます | 初期状態：商品0個、合計0円 |
+| **When "りんご" を "2" 個 スキャンする** | りんご（150円）が2個追加されます | 商品1種類：りんご2個、小計300円 |
+| **And "みかん" を "1" 個 スキャンする** | みかん（100円）が1個追加されます | 商品2種類：りんご2個＋みかん1個、合計400円 |
+| **Then 合計金額は "400" 円 であること** | 期待値400円と実際の合計金額400円が一致するかを検証します | テスト成功：期待値と実際値が一致 |
+
+このように、BDDでは自然言語で記述したシナリオが、実際のコードの動作と一致することを確認できます。
+
 ## BDDの実践的なメリット
 
-BDD を実践することで、開発者、テスト担当者、ビジネス関係者が同じ言語でコミュニケーションを取ることができるようになります。これまで例示してきたように、Gherkin で記述した日本語シナリオと PHP のテストコードが分離されていることで、非技術者でもテストの意図を理解でき、開発者も実装すべき動作を明確に把握できます。自然言語でテストを書くことで、曖昧な要件が明確になり、実装前に問題点を発見できるようになります。また、BDD で記述したテストは自動化されることで、リグレッションを防ぎ、継続的な品質保証を提供します。さらに、BDD で記述したテストはシステムの動作を説明する生きたドキュメントとしても機能します。
+### チーム間のコミュニケーション向上
+
+BDD を実践することで、開発者、テスト担当者、ビジネス関係者が同じ言語でコミュニケーションを取ることができるようになります。
+
+### 要件の明確化
+
+これまで例示してきたように、Gherkin で記述した日本語シナリオと PHP のテストコードが分離されていることで、非技術者でもテストの意図を理解でき、開発者も実装すべき動作を明確に把握できます。
+
+### 品質保証の自動化
+
+自然言語でテストを書くことで、曖昧な要件が明確になり、実装前に問題点を発見できるようになります。また、BDD で記述したテストは自動化されることで、リグレッションを防ぎ、継続的な品質保証を提供します。
+
+### 生きたドキュメントとしての機能
+
+さらに、BDD で記述したテストはシステムの動作を説明する生きたドキュメントとしても機能します。
 
 ## よくある落とし穴と対策
 
-BDD を実践する際には、いくつかの落とし穴があります。まず、テストに実装詳細（URL、HTTP ステータス、DOM 要素等）が混入してしまう問題があります。これを防ぐためには、ユーザーの視点でテストを書き、技術的詳細を隠蔽することが重要です。
+### 実装詳細の混入
+
+BDD を実践する際には、いくつかの落とし穴があります。まず、テストに実装詳細（URL、HTTP ステータス、DOM 要素等）が混入してしまう問題があります。
+
+### 対策方法
+
+これを防ぐためには、ユーザーの視点でテストを書き、技術的詳細を隠蔽することが重要です。
 
 ## まとめ
 
@@ -267,3 +417,11 @@ PHP で BDD を実践することで、顧客が求める価値に焦点を当�
 - Behat 公式ドキュメント：https://docs.behat.org/
 - PHPUnit 公式ドキュメント：https://phpunit.de/
 - PHP Conference Japan 2025：https://fortee.jp/phpcon-2025/proposal/15d8064d-4085-4cf9-ab44-6972f693577b
+
+## サンプルコード
+
+この章で説明したサンプルコードは、次の場所にあります。
+
+https://github.com/yumemi-inc/daigirin-2025-2/book/manuscripts/uutan1108/sample/
+
+サンプルコードを試すには、READMEの指示に従ってください。
