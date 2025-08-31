@@ -1,0 +1,3 @@
+[submodule "book/manuscripts/uutan1108-2/swiftwasm-playground"]
+	path = book/manuscripts/uutan1108-2/swiftwasm-playground
+	url = https://github.com/OHMORIYUSUKE/swiftwasm-playground.git
