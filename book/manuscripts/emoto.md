@@ -25,7 +25,7 @@ npm install -g @google/gemini-cli
 | <span class="no-break">設定の共有が困難</span> | MCP（Model Context Protocol）やカスタムプロンプトなど、チームメンバーやプロジェクト間で設定を揃えるのが難しい |
 | <span class="no-break">環境再構築の手間</span> | Node.js をインストールしたり、更新するたびに、環境の再構築が必要になる |
 
-この記事は、これらの問題に取り組みます。チーム間で同じ開発環境を維持するためのアプローチとして、Visual Studio Code（VS Code）+ DevContainer を活用する方法を紹介します。なお、開発環境は macOS を対象として、CLI の例には Gemini CLI を利用します。
+この記事は、これらの問題に取り組みます。チーム間で同じ開発環境を維持するためのアプローチとして、Visual Studio Code（以降、VS Code）+ DevContainer を活用する方法を紹介します。なお、開発環境は macOS を対象として、CLI の例には Gemini CLI を利用します。
 
 ## グローバルからローカルにインストールする
 
@@ -39,7 +39,7 @@ npm install --save-dev @google/gemini-cli
 
 ```json
 {
-  "name": "sample-dev-container",
+  "name": "sample-dev",
   "version": "1.0.0",
   "scripts": {
     "gemini": "gemini"
@@ -56,7 +56,7 @@ npm install --save-dev @google/gemini-cli
 
 前節でグローバルインストールの問題は解決しました。しかし、まだ問題は残っています。Node.js を各自環境でインストールしないといけません。エンジニアすべてが Node.js に詳しいわけではありません。環境構築だけで時間を消費してしまいます。
 
-それを解決するのが VS Code + DevContainer です。DevContainer は、VS Code において、開発環境そのものを Docker コンテナとして構築して、その仮想環境にマウントできます。そのコンテナの環境設定はコードで記述できるので、チームで簡単に共有できます。
+それを解決するのが VS Code + DevContainer です。DevContainer は、VS Code において、開発環境そのものを Docker コンテナとして構築して、その仮想環境にマウントできます。そのコンテナの環境設定はテキストファイルで記述できるので、チームで簡単に共有できます。
 
 これにより、開発者は手元のマシンに VS Code と Docker さえあれば、誰でも同じ開発環境を再現できます。Node.js のインストールや CLI ツールの導入もすべてコンテナが担うため、個別の環境構築は不要になります。
 
