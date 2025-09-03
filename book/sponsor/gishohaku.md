@@ -42,6 +42,98 @@ https://github.com/yumemi-inc/daigirin-template
 
 ### テーマ
 
+ゆめみ大技林のテーマは、「Vivliostyle Theme Macneko Techbook[^theme]」をベースに若干カスタマイズを行ったものを利用しています。 本テーマはゆめみ大技林製作委員会のメンバーが自作したもので、 Vivliostyle 公式テーマの Techbook[^techbook] をベースに組版設計の気になった部分に対してカスタマイズを行っています。
+
+[^theme]: https://www.npmjs.com/package/vivliostyle-theme-macneko-techbook
+[^techbook]: https://github.com/vivliostyle/themes/tree/main/packages/%40vivliostyle/theme-techbook
+
+本テーマのコンセプトは、Vivliostyle の公式テーマから大きく改変せず、公式テーマの新バージョンリリースをなるべく早く取り込んで、執筆体験をよくすることです。
+
+本テーマで行っているカスタマイズの一部を紹介します。
+
+#### 見出しをなるべく追い込むように調整する
+
+公式テーマでは、見出しをなるべく次のページに送り込むように定義されています。この状態で既刊の記事を流し込んで確認したところ、見出しが登場した際に改ページが行われることで本文がページの半分ほどしかないページが続いたり、改ページによるページ数増加が発生したりしました。  
+本文がページの半分ほどしかないページが続いた際の読みづらさや、ページ数増加による印刷代増加を避けるため、見出しをなるべく前のページに追い込むように調整しました。
+
+```css
+:root {
+  /* 
+   * header page break
+   */
+  --vs-section--h1-break-before: inherit;
+  --vs-section--h2-break-before: auto;
+  --vs-section--h3-break-before: auto;
+  --vs-section--h4-break-before: auto;
+  --vs-section--h5-break-before: auto;
+  --vs-section--h6-break-before: auto;
+}
+```
+
+#### コードブロックを調整する
+
+公式テーマでは、コードブロックがページをまたいだ際に網掛け内の天地のマージンが一定ではなく読みづらさを感じたので、マージンが一定になるように調整し、あわせて文字サイズや行間も調整しました。
+
+解決できていない問題として、「`display: flex` とした場合、キャプション付きのコードブロックに対して 1 ページ内に収まらない分量の長いコードを挿入すると、コードブロックがページ下部を突き抜けてしまう」というものがあり、キャプションありの場合は `display: block` にすることで回避しています。
+
+```css
+:root {
+  /* 
+   * code block
+   */
+  /* 等幅フォントの行間 */
+  --vs--monospace-line-height: 1.3;
+  /* コードブロック関連の文字サイズ */
+  --vs--pre-font-size: 95%;
+}
+
+/* 
+ * code block
+ */
+@media print {
+  pre[class*='language-'] {
+    /* コードブロックが複数ページにまたがったときに別ボックスとすることで、天地のマージンを一定にする */
+    box-decoration-break: clone;
+  }
+}
+
+figure[class*='language-'] {
+  /* 
+   * キャプション付きのコードブロックに対して1ページ内に収まらない分量の長いコードを挿入すると、
+   * コードブロックがページ下部を突き抜けてしまうので、
+   * キャプションありの場合は flex にしない
+   */
+  display: block;
+}
+```
+
+#### URLに対して自動で生成される脚注表記を無効化する
+
+脚注とは、本文の下部に表示される注記のことを指します
+
+公式テーマでは、URL に対して自動で脚注表記が生成されるのですが、著者自身で表記の有無をコントロールするほうが扱いやすいと感じたため、次のように調整して無効化しました。
+
+```css
+/* 
+ * footnote-external-link
+ */
+@media print {
+  /* URL に対して自動生成された脚注表記を非表示にする */
+  :not(.footnote) > a[href^='http']::before {
+    display: none;
+  }
+
+  :not(.footnote) > a[href^='http']::after {
+  /* URL の後ろに付与された脚注番号を非表示にする */
+    display: none;
+  }
+}
+```
+
+他にもカスタマイズを行っている部分はあるのですが、紙面の都合もあり割愛します。「新しくなった Vivliostyle Themes のカスタムテーマを公開する[^article]」という記事でカスタマイズ事例の紹介はもちろん、npm パッケージとして公開する方法なども掲載していますので、興味をもっていただいた方はご覧いただけるとうれしいです（2023 年の記事ですが基本的な部分はそのまま活用できると思います）。また、公開しているテーマのリポジトリからソースコードも確認できますので、あわせてご覧ください。
+
+[^article]: https://zenn.dev/macneko/articles/e08dcfaef8e6b0
+
 
 ### github actions
 
