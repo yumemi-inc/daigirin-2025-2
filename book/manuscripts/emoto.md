@@ -64,7 +64,7 @@ npm install --save-dev @google/gemini-cli
 
 ### DevContainer の環境を構築する
 
-まず、VS Code の拡張機能 Dev Containers [^devContainers] をインストールしてください。そして、プロジェクトルートに作成したディレクトリ `.devcontainer` の中に、次の２つのファイルを作成します。
+まず、VS Code の拡張機能 Dev Containers [^devContainers] をインストールしてください。そして、プロジェクトのルートにディレクトリ `.devcontainer` を作成して、その中に次の２つのファイルを作成します。
 
 [^devContainers]: Dev Containers - Visual Studio Marketplace, https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
@@ -108,22 +108,24 @@ WORKDIR /workspace
 https://github.com/mitsuharu/Sample-DevContainer
 ```
 
-ここで、Docker は Docker Desktop のインストールで問題ありません。しかしながら、諸事情で Docker Desktop をインストールされない方もいるでしょう。その場合、OSS としての Docker と、その Docker コンテナを管理する Colima を組み合わせて利用する方法もあります。
+ここで、Docker の準備は Docker Desktop をインストールするだけです。しかしながら、諸事情で Docker Desktop をインストールされない方もいるでしょう。その場合、OSS としての Docker と、その Docker コンテナを管理する Colima [^colima] を組み合わせて利用する方法もあります。
 
-その Docker + Colima を利用する環境の構築や利用は、サンプルプロジェクトに追加しています。定義された Makefile から `make setup-docker` を実行すれば、必要なツールがインストールされます。詳しくはリポジトリの README を読んでください。
+その Docker + Colima を利用する環境の構築や利用は、サンプルプロジェクトに追加しています。定義された Makefile から `make setup-docker` を実行すれば、必要なツールがインストールされます。詳しくはリポジトリの README や Makefile を確認してください。
+
+[^colima]: https://github.com/abiosoft/colima
 
 ### DevContainer を起動する
 
-準備が終わったら、次の手順で DevContainer を起動します。
+Dockerfile などの準備が終わったら、次の手順で DevContainer を起動します。
 
 1. プロジェクトを VS Code で開く
 1. VS Code で「コマンドの表示と実行」から選択する
   ![コマンドの表示と実行](./images_emoto/vscode_command.png)
-1. コマンドからコンテナーを開く
-  ![コンテナーを開く](./images_emoto/vscode_open_container.png)
+1. コマンドからコンテナを開く
+  ![コンテナを開く](./images_emoto/vscode_open_container.png)
 1. コンテナのビルドが完了すると、コンテナに接続された状態で VS Code が起動する
 
-これでコンテナーは起動しました。VS Code のターミナルから `npm run gemini` コマンドで Gemini CLI が起動します。
+これでコンテナは起動しました。VS Code のコンテナにマウントしたターミナルから `npm run gemini` コマンドで Gemini CLI が起動します。
 
 ![コンテナ上で Gemini CLI が起動する](./images_emoto/vscode_run_gemini.png)
 
