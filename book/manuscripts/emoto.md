@@ -21,7 +21,7 @@ npm install -g @google/gemini-cli
 
 |問題|詳細|
 |:--|:--|
-| <span class="no-break">バージョンの不一致</span> | メンバーそれぞれでバージョンが異なると、機能や挙動などが保障できない |
+| <span class="no-break">バージョンの不一致</span> | メンバーそれぞれでバージョンが異なると、機能や挙動などが保証できない |
 | <span class="no-break">設定の共有が困難</span> | MCP（Model Context Protocol）やカスタムプロンプトなど、チームメンバーやプロジェクト間で設定を揃えるのが難しい |
 | <span class="no-break">環境再構築の手間</span> | Node.js をインストールしたり、更新するたびに、環境の再構築が必要になる |
 
@@ -50,7 +50,7 @@ npm install --save-dev @google/gemini-cli
 }
 ```
 
-これにより `npm install` を実行するだけで、このプロジェクトを利用する全員に、同じバージョンの CLI ツールがインストールされます。実行は `npm run gemini` のように npm script 経由で実行します。
+これにより `npm install` を実行するだけで、このプロジェクトを利用する全員に、同じバージョンの CLI ツールがインストールされます。実行は `npm run gemini` のように npm script 経由で行います。
 
 ## Node.js から VS Code + DevContainer へ
 
@@ -133,7 +133,9 @@ Dockerfile などの準備が終わったら、次の手順で DevContainer を�
 
 CLI ツールをグローバルにインストールする方法は手軽ですが、チーム開発では環境の不整合という大きな問題が起こります。私は、プロジェクトに梱包する形として、ローカルインストールする方法を推奨します。
 
-さらに VS Code + DevContainer を利用すれば、開発環境イメージを共有できます。AI ツールに限らず、チーム全員が同じ開発環境を維持するのは難しいです。この DevContainer を利用すれば、開発以外のトラブルから解放されます。また、エンジニアそれぞれが Node.js を準備するが不要になります。ただし、この DevContainer をメンテする人は、ローカルに Node.js をインストールしておくと、よいですね。
+さらに VS Code + DevContainer を利用すれば、開発環境イメージを共有できます。AI ツールに限らず、チーム全員が同じ開発環境を維持するのは難しいです。この DevContainer を利用すれば、開発以外のトラブルから解放されます。エンジニアそれぞれが Node.js を準備する必要はなくなります。
+
+ただし、この DevContainer のメンテナンスをする人は、ローカル環境に Node.js をインストールしておくと便利ですね。問題が起こったときに、原因が Docker か Node.js かと切り分けたり、ちょっとした動作確認をする際に、手早く手元で調査できます。
 
 改めて、この VS Code + DevContainer で Gemini CLI を実行するサンプルプロジェクトを GitHub に公開しています。ご興味ある方はご覧ください。
 
