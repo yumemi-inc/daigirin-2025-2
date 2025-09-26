@@ -4,15 +4,14 @@ class: content
 
 <div class="doc-header">
   <div class="doc-title">Reactエンジニア向けFlutter入門</div>
-  <div class="doc-author">ふぁ</div>
+  <div class="doc-author">ふぁ（@faa0311）</div>
 </div>
----
 
 # Reactエンジニア向けFlutter入門
 
 ## はじめに
 
-はじめまして、ゆめみ25卒の幸と申します。
+はじめまして、ゆめみ25卒のふぁと申します。
 業務では主にFlutter開発を行っていますが、趣味でReactを触っているのでその知見をもとに
 Reactエンジニア向けFlutter入門を執筆しました。
 
@@ -245,3 +244,27 @@ Reactの経験があれば、コンポーネントベースのUI構築やステ�
 次のステップとしては、公式ドキュメントやサンプルアプリのコードリーディングがおすすめです。Flutterは最初の学習コストこそありますが、その分、良い開発体験が得られます。
 
 本書がFlutterを学ぶきっかけになればうれしいです。
+
+## 署名
+
+ちょっとした遊び心です。理論上は検証できます。
+
+```shell
+sed -n '/^# Reactエンジニア向けFlutter入門$/,/^## 署名$/{/^## 署名$/d;p;}' yuki.md > body.md
+pandoc body.md -f markdown -t plain --strip-comments | tr -d '[:space:]' > normalize.txt 
+gpg --armor --detach-sign --yes normalize.txt
+sed -i.bak '/^```key[[:space:]]*$/,$d' yuki.md
+printf '```key\n%s\n```\n' "$(cat normalize.txt.asc)" >> yuki.md
+```
+
+`PGP Fingerprint: EAB5 AF5A A7ED 7A16 C402  7B52 83A8 A5E7 4872 A8AA`
+
+```key
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTqta9ap+16FsQCe1KDqKXnSHKoqgUCaNZ/qgAKCRCDqKXnSHKo
+quLlAQC7bso7yrqdz2FggvozHdwUESm9knVPNefumbul+UlG1wD8Cch56wDy8PfX
+FGRaC7ta0I7AacvjTD47WTNeMFR88QE=
+=egEp
+-----END PGP SIGNATURE-----
+```
