@@ -29,7 +29,7 @@ npm install -g @google/gemini-cli
 
 ## グローバルからローカルにインストールする
 
-CLI ツールをグローバルにインストールするのではなく、プロジェクト自体にのインストールします。プロジェクトに `package.json` がなければ、`npm init` で作成します。
+CLI ツールをグローバルにインストールするのではなく、プロジェクト自体にインストールします。プロジェクトに `package.json` がなければ、`npm init` で作成します。
 
 ```shell
 npm install --save-dev @google/gemini-cli
