@@ -13,7 +13,6 @@
     "open": "open ./book/output/ebook.pdf",
     "clean": "rm -rf ./book/output/",
     "cover": "node ./scripts/InsertCoverImage.js",
-    "preinstall": "npx only-allow yarn",
     "check": "biome check",
     "check-write": "biome check --write",
     "install:safe-chain": "npm install -g @aikidosec/safe-chain@1.0.24 && safe-chain setup && ./scripts/relogin.sh",
