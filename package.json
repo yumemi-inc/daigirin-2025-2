@@ -32,9 +32,5 @@
     "textlint-rule-prh": "^6.1.0",
     "textlint-rule-spellcheck-tech-word": "^5.0.0"
   },
-  "packageManager": "yarn@4.10.3",
-  "engines": {
-    "yarn": "4.10.3",
-    "npm": "please-use-yarn"
-  }
+  "packageManager": "yarn@4.10.3"
 }
