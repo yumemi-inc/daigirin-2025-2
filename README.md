@@ -143,8 +143,7 @@ corepack enable yarn
 `@aikidosec/safe-chain` が更新されたら、それ自身の安全性を確認した後に、次のファイルそれぞれを更新してください。
 
 - `package.json`
-	- `install:safe-chain`  でのバージョン指定
-	- `uninstall:safe-chain` でのバージョン指定
+	- `install:safe-chain` でのバージョン指定
 - `.github/workflows/aikidosec-safe-chain.yml`
 	- `name: Setup safe-chain` でのバージョン指定
 
