@@ -132,3 +132,42 @@ corepack enable yarn
 ### 注意事項
 
 - このリポジトリの MIT ライセンスには、株式会社ゆめみの紹介文やコーポレートロゴは含まれません。
+
+## セキュリティ対策
+
+ローカルおよび CI で、[@aikidosec/safe-chain](https://github.com/AikidoSec/safe-chain) を利用して、パッケージの安全性を確認できます。ただし、2025/09/27 時点では、次に注意してください。
+
+- 利用する `@aikidosec/safe-chain` は 1.0.24 に固定しています
+- バージョン 1.0.24 では yarn はフルサポートされていません
+
+`@aikidosec/safe-chain` が更新されたら、それ自身の安全性を確認した後に、次のファイルそれぞれを更新してください。
+
+- `package.json`
+	- `install:safe-chain`  でのバージョン指定
+	- `uninstall:safe-chain` でのバージョン指定
+- `.github/workflows/aikidosec-safe-chain.yml`
+	- `name: Setup safe-chain` でのバージョン指定
+
+### ローカル環境
+
+ローカルに `@aikidosec/safe-chain` をグローバルインストールして、初期設定を行います。これは Node.js 環境を更新しない限り、一回だけの実行で OK です。
+
+```shell
+yarn install:safe-chain
+```
+
+新しいパッケージをインストールするたびに、自動でパッケージが確認されます。
+
+```shell
+yarn add {new-package}
+```
+
+ローカルから `@aikidosec/safe-chain` をアンインストールします。
+
+```shell
+yarn uninstall:safe-chain
+```
+
+### CI
+
+package.json の変更を含む PR が作成されたら、パッケージが確認されます。ただし、yarn ではなく、`npm ci` で実行するので、依存パッケージのバージョンアップが必ずしも一致しません。
