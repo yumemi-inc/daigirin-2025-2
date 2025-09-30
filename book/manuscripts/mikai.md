@@ -28,8 +28,9 @@ class: content
 
 左がカウンター機能、右が確率計算機になります
 
-<img src="./images_mikai/counter.png" width="400px" height="900px" alt="カウンター画面">
-<img src="./images_mikai/graph.png" width="400px" height="900px" alt="確率グラフ">
+|カウンター機能|確率計算機|
+| --- | --- |
+| <img src="./images_mikai/counter.png"  alt="カウンター画面"> | <img src="./images_mikai/graph.png"  alt="確率グラフ"> |
 
 ## なぜ作ったのか？
 
