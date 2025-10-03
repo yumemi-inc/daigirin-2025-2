@@ -4,7 +4,7 @@ class: content
 
 <div class="doc-header">
   <div class="doc-title">Reactエンジニア向けFlutter入門</div>
-  <div class="doc-author">ふぁ（@faa0311）</div>
+  <div class="doc-author">ふぁ（@fa0311）</div>
 </div>
 
 # Reactエンジニア向けFlutter入門
@@ -245,11 +245,13 @@ Reactの経験があれば、コンポーネントベースのUI構築やステ�
 
 本書がFlutterを学ぶきっかけになればうれしいです。
 
+<hr class="page-break"/>
+
 ## 署名
 
 ちょっとした遊び心です。理論上は検証できます。
 
-```shell
+```txt
 sed -n '/^# Reactエンジニア向けFlutter入門$/,/^## 署名$/{/^## 署名$/d;p;}' yuki.md > body.md
 pandoc body.md -f markdown -t plain --strip-comments | tr -d '[:space:]' > normalize.txt 
 gpg --armor --detach-sign --yes normalize.txt
@@ -257,14 +259,16 @@ sed -i.bak '/^```key[[:space:]]*$/,$d' yuki.md
 printf '```key\n%s\n```\n' "$(cat normalize.txt.asc)" >> yuki.md
 ```
 
-`PGP Fingerprint: EAB5 AF5A A7ED 7A16 C402  7B52 83A8 A5E7 4872 A8AA`
+```txt
+PGP Fingerprint: EAB5 AF5A A7ED 7A16 C402  7B52 83A8 A5E7 4872 A8AA
+```
 
 ```key
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTqta9ap+16FsQCe1KDqKXnSHKoqgUCaN8s6gAKCRCDqKXnSHKo
-qopaAP9tzOu5zunLEBbyoGPepmvao//cXSe0IlzZt2oMLdJwvgEA5Z6R1zeKgYob
-EJRpHqGzcmg6cy5Ev32saCk33BIYcgE=
-=bNQm
+iHUEABYKAB0WIQTqta9ap+16FsQCe1KDqKXnSHKoqgUCaN+YhQAKCRCDqKXnSHKo
+qg6sAQC07LGxCmsQAkUwA0tUe0EhNXyT2+b5G1+WlUmTwSAfBAD5AYUbhwb1QIze
+jSymJ3ae7cxXnfa+uyaNvP3AcNjQWQw=
+=co+U
 -----END PGP SIGNATURE-----
 ```
