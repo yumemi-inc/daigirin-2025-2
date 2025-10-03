@@ -68,14 +68,40 @@ Scenario: 複数の商品を購入する
 
 #### キーワードの説明
 
-| キーワード | 説明 |
-|------------|------|
-| **Feature** | テスト対象の機能や特徴を定義します。機能の目的と価値を明確に表現します。 |
-| **Scenario** | 具体的なテストケースを定義します。ユーザーがどのような状況で何を行うかを記述します。 |
-| **Given** | テストの前提条件を記述します。テストを実行する前の状態や環境を設定します。 |
-| **When** | ユーザーが実行するアクションを記述します。テスト対象の動作や操作を定義します。 |
-| **Then** | 期待する結果や検証項目を記述します。アクション実行後の期待される状態を表現します。 |
-| **And** | 前のステップと同じ種類のステップを追加する際に使用します。Given、When、Then の後に複数の条件や結果を記述できます。 |
+<table>
+<thead>
+<tr>
+<th><span class="no-break">キーワード</span></th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Feature</strong></td>
+<td>テスト対象の機能や特徴を定義します。機能の目的と価値を明確に表現します。</td>
+</tr>
+<tr>
+<td><strong>Scenario</strong></td>
+<td>具体的なテストケースを定義します。ユーザーがどのような状況で何を行うかを記述します。</td>
+</tr>
+<tr>
+<td><strong>Given</strong></td>
+<td>テストの前提条件を記述します。テストを実行する前の状態や環境を設定します。</td>
+</tr>
+<tr>
+<td><strong>When</strong></td>
+<td>ユーザーが実行するアクションを記述します。テスト対象の動作や操作を定義します。</td>
+</tr>
+<tr>
+<td><strong>Then</strong></td>
+<td>期待する結果や検証項目を記述します。アクション実行後の期待される状態を表現します。</td>
+</tr>
+<tr>
+<td><strong>And</strong></td>
+<td>前のステップと同じ種類のステップを追加する際に使用します。Given、When、Then の後に複数の条件や結果を記述できます。</td>
+</tr>
+</tbody>
+</table>
 
 ### 良い例：振る舞いを意識したテスト
 
@@ -448,7 +474,7 @@ PHP で BDD を実践することで、顧客が求める価値に焦点を当�
 
 この章で説明したサンプルコードは、次の場所にあります。
 
-https://github.com/yumemi-inc/daigirin-2025-2/book/manuscripts/uutan1108/sample/
+https://github.com/OHMORIYUSUKE/php-bdd-sample-daigirin-2025-2
 
 サンプルコードを試すには、README の指示にしたがってください。
 
