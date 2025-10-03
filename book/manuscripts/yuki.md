@@ -15,7 +15,7 @@ class: content
 業務では主にFlutter開発を行っていますが、趣味でReactを触っているのでその知見をもとに
 Reactエンジニア向けFlutter入門を執筆しました。
 
-本書では、ReactとFlutterの共通点や違いを比較しながら解説します。
+本章では、ReactとFlutterの共通点や違いを比較しながら解説します。
 普段Reactを使っている方がFlutterに興味を持っていただけたらと思います。
 また、ReactやFlutterの経験がなくても理解できるように構成しています。
 
@@ -27,7 +27,7 @@ DartはもともとJavaScriptの代替を目指して設計された静的型付
 
 デメリットでもメリットでもありますが、DartとFlutterはどちらもGoogleによって開発されています。
 
-ReactはDOMやブラウザの描画エンジンを前提としていますが、FlutterはSkiaという描画エンジンで直接レンダリングします。そのためプラットフォームに依存しない一貫したUIを提供できるのが大きな特徴です。
+ReactはDOMやブラウザの描画エンジンを前提としていますが、FlutterはSkia/Impellerという描画エンジンで直接レンダリングします。そのためプラットフォームに依存しない一貫したUIを提供できるのが大きな特徴です。
 Web向けビルドではデフォルトでCanvasKit（SkiaベースのWebAssemblyレンダラーでキャンバスに描画される）が使われますが、軽量なHTMLレンダラーも選択可能です。
 
 また、FlutterもReactと同じくHot Reloadを備えており、状態を保持したままコードの変更を即座に反映できます。これにより開発効率が大幅に向上します。
@@ -262,9 +262,9 @@ printf '```key\n%s\n```\n' "$(cat normalize.txt.asc)" >> yuki.md
 ```key
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTqta9ap+16FsQCe1KDqKXnSHKoqgUCaNZ/qgAKCRCDqKXnSHKo
-quLlAQC7bso7yrqdz2FggvozHdwUESm9knVPNefumbul+UlG1wD8Cch56wDy8PfX
-FGRaC7ta0I7AacvjTD47WTNeMFR88QE=
-=egEp
+iHUEABYKAB0WIQTqta9ap+16FsQCe1KDqKXnSHKoqgUCaN8s6gAKCRCDqKXnSHKo
+qopaAP9tzOu5zunLEBbyoGPepmvao//cXSe0IlzZt2oMLdJwvgEA5Z6R1zeKgYob
+EJRpHqGzcmg6cy5Ev32saCk33BIYcgE=
+=bNQm
 -----END PGP SIGNATURE-----
 ```
