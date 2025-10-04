@@ -87,7 +87,29 @@ F-Droidの技術的な仕組みは、リポジトリと呼ばれる配布サー�
 
 各配布方法を比較すると、コスト面では、Google Play Storeが初回25ドルのみ、F-Droidは完全無料（サーバー費用のみ）、DeployGateは月額16,500円からとなります。機能面では、人数制限はGoogle Play StoreとF-Droidが無制限、DeployGateはプラン依存。審査はGoogle Play Storeが設定次第、F-DroidとDeployGateは不要。即座の配布はF-DroidとDeployGateが可能、Google Play Storeは条件付き。クラッシュレポートはDeployGateのみが充実しています。
 
-選択の指針として、オープンソースプロジェクトならF-Droid、企業環境ならManaged Google Play、一般配布ならGoogle Play Store、手軽さを重視するならDeployGateが適しています。
+以下の表に、コスト面や機能面で各サービスを比べてみた表を作成しました。
+
+#### コスト面での詳細比較
+
+| プラットフォーム | 初期費用 | 月額費用 | 備考 |
+| - | - | - | - |
+| Google Play Store | $25（初回のみ） | $25（初回のみ） | 一度支払えば長期利用可能 |
+| F-Droid（独自構築） | なし | なし | サーバー代のみ |
+| DeployGate | なし | ¥16,500〜 | 無料プランは制限あり |
+| Managed Google Play | なし | EMM費用 | 企業向けEMMソリューション必須 |
+
+#### 機能面での詳細比較
+
+| 機能項目 | Google Play Store | F-Droid（独自） | DeployGate | Managed Google Play |
+| - | - | - | - | - |
+| **配布人数制限** | 無制限 | 無制限 | 5人（無料）/無制限（有料） | 組織内無制限 |
+| **アプリ数制限** | 無制限 | 無制限 | 2個（無料）/無制限（有料） | 無制限 |
+| **審査プロセス** | 内部テスト：不要<br>その他：あり | 不要 | 不要 | 不要 |
+| **即座の配布** | 内部テスト：○<br>その他：△ | ○ | ○ | ○ |
+| **自動更新** | ○ | ○ | ○ | ○ |
+| **クラッシュレポート** | △（基本的な情報のみ） | × | ○（詳細） | △ |
+
+まとめとして、選択の指針として、オープンソースプロジェクトならF-Droid、企業環境ならManaged Google Play、一般配布ならGoogle Play Store、手軽さを重視するならDeployGateが適しています。
 
 ## 第3章 F-Droidでの独自配布システム構築
 
