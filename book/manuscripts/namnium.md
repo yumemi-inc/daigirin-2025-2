@@ -1278,7 +1278,7 @@ impl FizzBuzzValue {
 
 業務でのRust利用を通じ、Rustは `?` 位置でのトレースを得られにくいことに気がついた筆者は、 `?` 位置に自動的に `Result` 型（や `Option` 型）のメソッドを挿入してくれるマクロを作ろうと思い立ちました。
 
-そこで半年ほどかけて作成したのが以下のURLで示しているhooqクレートです！
+そこで半年ほどかけて作成したのがhooqクレートです！
 
 - anotherhollow1125/hooq: The simple macro that inserts a method before `?`. (`?` 前にメソッドを挿入するシンプルなマクロ) [^linkhooq]
 
