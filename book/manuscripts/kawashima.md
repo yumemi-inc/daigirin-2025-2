@@ -14,7 +14,9 @@ class: content
 
 筆者は2004年からモバイルアプリ開発に関わってきました。これまでの歴史を振り返って、この20年ほどで変わったものと変わらなかったものを見ていき、モバイルアプリのこれからを考えてみます。
 
-最初に結論として、モバイルアプリのこれからについて現在の筆者の考えとしては、**アプリレスアプリ**を構想しています。アプリを開いて何かをする体験ではなく、何かしたいことがあって、アプリの機能を利用する形をイメージしています。この背景についてはFindyさん企画のテック転生<span class="footnote">「もしまいま記憶喪失になりテックをイチから学び直すとしたら、どんな風に勉強しますか？」IFストーリーを通じて、それぞれの方の技術との向き合い方を聞いている企画です。 https://findy-code.io/engineer-lab/archive/category/%E3%83%86%E3%83%83%E3%82%AF%E8%BB%A2%E7%94%9F</span>に「もしもいま記憶喪失になりモバイルアプリ開発を学び直すとしたら」というテーマで寄稿もしています。
+最初に結論として、モバイルアプリのこれからについて現在の筆者の考えとしては、**アプリレスアプリ**を構想しています。アプリを開いて何かをする体験ではなく、何かしたいことがあって、アプリの機能を利用する形をイメージしています。
+
+この背景についてはFindyさん企画の『テック転生』<span class="footnote">「もしもいま記憶喪失になりテックをイチから学び直すとしたら、どんな風に勉強しますか？」IFストーリーを通じて、それぞれの方の技術との向き合い方を聞いている企画です。 https://findy-code.io/engineer-lab/archive/category/%E3%83%86%E3%83%83%E3%82%AF%E8%BB%A2%E7%94%9F</span>に「もしもいま記憶喪失になりモバイルアプリ開発を学び直すとしたら」というテーマで寄稿もしています。
 
 ![記事のQRコード](./images_kawashima/qr_findy.png "記事のQRコード")
 
@@ -22,12 +24,12 @@ class: content
 
 ## モバイルアプリの変遷
 
-モバイルアプリのコードベースは大きく二つに分類されます。CコンパイラベースとJVMベースです<span class="footnote">これらはモバイルアプリの中でもネイティブと呼ばれ、携帯電話のプラットフォームをラップせずに直接利用することから、後述の言語の対比の中でそう呼ばれています。ネイティブのほかに、WebベースのjQuery Mobile／Cordova／Ionic／React Native、.NET環境のXamarin、Flutter 等多数存在しますが、これらはプラットフォームをラップしていて、今回の記事の対象外としました。単純に、これらの方面に対して、筆者の経験が乏しいのも理由の一つです。</span>。
+モバイルアプリのコードベースは大きく二つに分類されます。CコンパイラベースとJVMベースです<span class="footnote">これらはモバイルアプリの中でもネイティブと呼ばれ、携帯電話のプラットフォームをラップせずに直接利用することから、後述のプラットフォームごとの言語体系の対比の中でそう呼ばれています。ネイティブのほかに、WebベースのjQuery Mobile／Cordova／Ionic／React Native、.NET環境のXamarin、Flutter 等多数存在しますが、これらはプラットフォームをラップしていて、今回の記事の対象外としました。単純に、これらの方面に対して、筆者の経験が乏しいのも理由の一つです。</span>。
 
 ![モバイルアプリの変遷](./images_kawashima/mobile_history.png "モバイルアプリの変遷"){width="360"}
 
 
-基本的にガラケーの頃はJVMベースのJavaアプリが主流でした。EZアプリ<span class="footnote">EZアプリはJVMベースのJavaアプリとCコンパイラベースのBREWがあります。</span>のみ途中からCコンパイラベースに変わりました。携帯電話に特化したプロファイルとしてCLDC／MIDPに準拠しており、iアプリのみCLDCの独自拡張のプロファイル・DoJaを採用していました<span class="footnote">参考文献のJava言語によるモバイルゲーム開発 p.3〜4に詳しい理由が記されています。</span>。その後、スマートフォンが登場して、Cコンパイラベースの iPhoneとJVMベースのAndroid<span class="footnote">Androidでは、Javaだけでなく、NDKを利用したC/C++のライブラリを組み込むことも可能です。</span> が登場して、今も続いています。
+基本的にガラケーの頃はJVMベースのJavaアプリが主流でした。EZアプリ<span class="footnote">EZアプリはJVMベースのJavaアプリとCコンパイラベースのBREWがあります。</span>のみ、途中からCコンパイラベースに変わりました。携帯電話に特化したプロファイルとしてCLDC／MIDPに準拠しており、iアプリのみCLDCの独自拡張のプロファイル・DoJaを採用していました<span class="footnote">参考文献のJava言語によるモバイルゲーム開発 p.3〜4に詳しい理由が記されています。</span>。その後、スマートフォンが登場して、Cコンパイラベースの iPhoneとJVMベースのAndroid<span class="footnote">Androidでは、Javaだけでなく、NDKを利用したC/C++のライブラリを組み込むことも可能です。</span> が登場して、今も続いています。
 
 本記事で扱うコードについて、`import` やオーバーライドメソッドが必須になる部分がありますが、紙面では冗長な情報になるため、全体的に文脈と無関係な文は省略しています。現状、ビルド可能なリソース自体入手困難だと思うので検証も難しいですが、本記事で紹介しているコードはそのままではコンパイルが通らないことをご了承ください。
 
@@ -35,7 +37,7 @@ class: content
 
 ### iアプリ
 
-`IApplication` を継承したクラスの `start` メソッドがアプリ起動時に呼ばれます。`Canvas` を継承したクラスの `paint` メソッドがシステムから定期的に呼ばれます。アプリに表示したい処理をこの `paint` メソッドに記述することでアプリを表現していました。下記に示すように `Canvas` に直接グラフィックスを描画して、画面に表示していました。これは今もiPhone／Androidで直接座標を指定して描画する仕組み自体は残っています。
+`IApplication` を継承したクラスの `start` メソッドがアプリ起動時に呼ばれます。`Canvas` を継承したクラスの `paint` メソッドがシステムから定期的に呼ばれます。画面に表示したい処理をこの `paint` メソッドに記述することでアプリを表現していました。下記に示すように `Canvas` に直接グラフィックスを描画して、画面に表示していました。これは今もiPhone／Androidで直接座標を指定して描画する仕組み自体は残っています。
 
 ```java
 public class MyApp extends IApplication {
@@ -70,6 +72,8 @@ public class MyApp extends IApplication {
     }
 }
 
+コード中の例外処理は基本無視というのは、ここで `catch` してもアプリの処理を復帰するのは現実的ではなかったため、諦めとしての無視になっています。
+
 // Runnable を継承してスレッド処理可能にします
 class ContentView extends Canvas implements Runnable {
     public void run() {
@@ -89,6 +93,7 @@ class ContentView extends Canvas implements Runnable {
             try {
                 Thread.sleep(100);
             } catch (Exception e) {
+                // 例外処理は基本的に無視
             }
         }
     }
@@ -102,7 +107,7 @@ class ContentView extends Canvas implements Runnable {
 
 iアプリが独自拡張しているDoJaとはAPIが多少異なる程度で、大きな差異はないです<span class="footnote">厳密には、DoJaはCLDCの独自拡張で、MIDPとの間に互換性はありません。共通している部分は多々あるため結果的に共通利用できる部分は多いです。</span>。EZアプリのJava版とJ-Skyアプリ／Vアプリ／S!アプリ<span class="footnote">J-SkyアプリはVodafoneに、VアプリはSoftBankに買収され、アプリの呼び名は変わっていますが本質的な違いはありません。正確には、MIDPを拡張した仕様JSCL／MEXAを採用しています。</span>はこの形になります。
 
-継承するクラスが `MIDlet` に変わって、エントリ・ポイントとしてはコンストラクタ<span class="footnote">Javaではクラスと同名の、ここでは `MyApp` がコンストラクタと呼ばれ、クラスのインスタンスを生成するための特別な関数になります。システム側で `MyApp` のインスタンスを生成する際に、このコンストラクタが呼ばるため、ここがエントリ・ポイントとして機能します。</span>になりました。`Canvas`を介して直接描画する点は同じです。インタラクティブな描画に関してもiアプリと同様のためここでは省略します。
+継承するクラスが `MIDlet` に変わって、エントリ・ポイントとしてはコンストラクタ<span class="footnote">Javaではクラスと同名の、ここでは `MyApp` がコンストラクタと呼ばれ、クラスのインスタンスを生成するための特別な関数になります。システム側で `MyApp` のインスタンスを生成する際に、このコンストラクタが呼ばれるため、ここがエントリ・ポイントとして機能します。</span>になりました。`Canvas`を介して直接描画する点は同じです。インタラクティブな描画に関してもiアプリと同様のためここでは省略します。
 
 ```java
 public class MyApp extends MIDlet {
@@ -122,13 +127,13 @@ class ContentView extends Canvas {
 
 ### EZアプリ（BREW）
 
-Javaと見比べるとSDKではなく、プログラミングする範囲が多いです。まずエントリ・ポイントでBREWアプリ（＝`AEEApplet`）に対してメモリを割り当てます。そうすると、システム側からイベントハンドラが呼ばれるので、そこでテキストを描画するフローになっています。筆者自身はBREWアプリを実際に書いたことはなくて書籍とサンプルリポジトリ<span class="footnote">Software Development for the QUALCOMM BREW Platform https://github.com/Apress/software-dev-for-qualcomm-brew-platform</span>を参考に書き起こしました。
+Javaと見比べるとSDKではなく、プログラムとして記述が必要な範囲が広いです。まずエントリ・ポイントでBREWアプリ（＝`AEEApplet`）に対してメモリを割り当てます。そうすると、システム側からイベントハンドラが呼ばれるので、そこでテキストを描画するフローになっています。筆者自身はBREWアプリを実際に書いたことはなくて書籍とサンプルリポジトリ<span class="footnote">Software Development for the QUALCOMM BREW Platform https://github.com/Apress/software-dev-for-qualcomm-brew-platform</span>を参考に書き起こしました。
 
 ```c
 // イベントハンドラの定義
 static boolean HelloWorld_HandleEvent( IApplet * pi,
                                        AEEEvent eCode,
-                                       unit16 wParam,
+                                       uint16 wParam,
                                        uint32 dwParam );
 
 // エントリ・ポイント
@@ -146,7 +151,7 @@ int AEEClsCreateInstance( AEECLSID clsID,
                                 clsID,
                                 pIShell,
                                 po,
-                                (IApplet**)poObj,
+                                (IApplet**)ppObj,
                                 (AEEHANDLER)HelloWorld_HandleEvent,
                                 NULL);
     }
@@ -158,7 +163,7 @@ int AEEClsCreateInstance( AEECLSID clsID,
  */
 static boolean HelloWorld_HandleEvent( IApplet * pi,
                                        AEEEvent eCode,
-                                       unit16 wParam,
+                                       uint16 wParam,
                                        uint32 dwParam )
 {
     AECHAR szText[] = {'H','e','l','l','o',' ',
@@ -177,8 +182,10 @@ static boolean HelloWorld_HandleEvent( IApplet * pi,
                               IDF_ALIGN_CENTER | IDF_ALIGN_MIDDLE );
             IDISPLAY_Update( pMe->pIDisplay );
             handled = TRUE;
+            break;
         case EVT_APP_STOP:
             handled = TRUE;
+            break;
         default:
             break;
     }
@@ -188,7 +195,7 @@ static boolean HelloWorld_HandleEvent( IApplet * pi,
 
 ### Android（Java）
 
-Androidでは、`Activity` を継承して `onCreated` が起動時に呼ばれます。JVMベースの後継として考え方に大きな違いはありません。ただし、画面回転の概念が誕生したため、`savedInstanceState` のように状態を保存する必要性が生じるようになってきました。大きな違いとして、プログラムとレイアウトとリソースが分かれるようになりました。デバイス側でサポートするアプリサイズが飛躍的に増加して<span class="footnote">ガラケー時代は、10〜100KB制限ほどでしたが、デバイスのストレージに比例して数MBまで可能になりました。</span>、ファイルを分割するのが当たり前になりました。これまでと同じように `Canvas` を利用して座標に直接描画する方法も可能ではあります。
+Androidでは、`Activity` を継承して `onCreated` が起動時に呼ばれます。JVMベースの後継として考え方に大きな違いはありません。ただし、画面回転の概念が誕生したため、`savedInstanceState` のように状態を保存する必要性が生じました。大きな違いとして、プログラムとレイアウトとリソースが分かれるようになりました。デバイス側でサポートするアプリサイズが飛躍的に増加して<span class="footnote">ガラケー時代は、10〜100KB制限ほどでしたが、デバイスのストレージに比例して数MBまで可能になりました。</span>、ファイルを分割するのが当たり前になりました。これまでと同じように `Canvas` を利用して座標に直接描画する方法も可能ではあります。
 
 ```java
 public class MainActivity extends Activity {
@@ -205,7 +212,7 @@ public class MainActivity extends Activity {
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<LinerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -215,7 +222,7 @@ public class MainActivity extends Activity {
         android:layout_height="wrap_content"
         android:text="@string/hello_world"
     />
-</LinerLayout>
+</LinearLayout>
 ```
 
 テキストリソースファイルを利用することで多言語対応もサポートするようになりました。これまでのガラケーは日本向けに限定されていましたが、世界中のユーザが対象になり、それをサポートできる仕組みが用意されています。
@@ -227,11 +234,11 @@ public class MainActivity extends Activity {
 </resources>
 ```
 
-これらXMLファイルは `R.java` に変換されてプログラムからそれぞれ `R.layout.main` `R.staring.hello_world` という形でアクセス可能になっています。
+これらXMLファイルは `R.java` に変換されてプログラムからそれぞれ `R.layout.main` `R.string.hello_world` という形でアクセス可能になっています。
 
 ### iPhone OS（Objective-C）
 
-ここまでプラットフォームやSDKが変わってもJavaアプリだったので似たような構成でした。iPhone OS<span class="footnote">初期はiOSではなく、iPhone OSと呼ばれていました。</span>はJavaアプリではないため、がらりと構成が変わります。唯一BREWアプリだけ特異点で、Objective-Cも同じCコンパラベースのため、近いものを感じます。Objetive-Cは名前に**C**と付いている通り、C言語のスタイルを踏襲しています。そのため、`main` 関数から始まります。
+ここまでプラットフォームやSDKが変わってもJavaアプリだったので似たような構成でした。iPhone OS<span class="footnote">初期はiOSではなく、iPhone OSと呼ばれていました。</span>はJavaアプリではないため、がらりと構成が変わります。唯一、BREWアプリだけ特異点で、Objective-Cも同じCコンパラベースのため、近いものを感じます。Objective-Cは名前に**C**と付いている通り、C言語のスタイルを踏襲しています。そのため、`main` 関数から始まります。
 
 ```objc
 // 起動時に呼ばれます
@@ -293,7 +300,7 @@ ViewControllerという考えがモバイルアプリに登場して、Model-Vie
 @end
 ```
 
-`loadView` の中で `textView.text` に文字列を指定し、画面に**Hello, Wolrd!**が表示されます。
+`loadView` の中で `textView.text` に文字列を指定し、画面に**Hello, World!**が表示されます。
 
 ```objc
 @implementation MainViewController
@@ -303,8 +310,8 @@ ViewControllerという考えがモバイルアプリに登場して、Model-Vie
 }
 
 - (void)loadView {
-    textView = [[UITextView alloc] initWithFrame:[UIScreen mainScreen]];
-    textView.text = @"Hello, Wolrd!";
+    textView = [[UITextView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    textView.text = @"Hello, World!";
     self.view = textView;
 }
 
@@ -317,7 +324,7 @@ ViewControllerという考えがモバイルアプリに登場して、Model-Vie
 
 ### iOS（Swift）
 
-Objective-CからSwiftに変わり、iPhone OSもiOSと呼ばれるようになり、前述の表現から段階的に洗練されていきます。その間の変遷は本記事では省略してSwiftUIの表現まで一気に時代を進めます。Objective-Cから比べるとかなりシンプルになりました。プログラムとして描画命令の考えから、宣言的なUI表現へと変わっていきました。同じC系でもメモリ管理についてはプログラムで明示しなくても良くなっていきました。Previewも宣言的に書けるようになりました。このコードの例では一つのプレビューですが、状態によって表示が変わる場合など複数の条件のプレビューを定義することもできます。
+Objective-CからSwiftに変わり、iPhone OSもiOSと呼ばれるようになり、より洗練されていきました。その間の変遷は本記事では省略してSwiftUIの表現まで一気に時代を進めます。Objective-Cから比べるとかなりシンプルになりました。プログラムとして描画命令の考えから、宣言的なUI表現へと変わっていきました。同じC系でもメモリ管理についてはプログラムで明示しなくても良くなっていきました。Previewも宣言的に書けるようになりました。このコードの例では一つのプレビューですが、状態によって表示が変わる場合など複数の条件のプレビューを定義することもできます。
 
 ```swift
 @main
@@ -344,7 +351,7 @@ struct ContentView: View {
 
 ### Android（Kotlin）
 
-Androidの方も開発言語がJavaからKotlinに変わり、Android OSの表現力も洗練されていきます。その間の変遷についても本記事では省略してJetpack Composeの表現まで一気に進めます。宣言的なUI表現へと変わっています。SwiftUI同様にプレビューも宣言的に定義できます。
+Androidの方も開発言語がJavaからKotlinに変わり、Android OSの表現力も洗練されていきました。その間の変遷についても本記事では省略してJetpack Composeの表現まで一気に進めます。宣言的なUI表現へと変わりました。SwiftUI同様にプレビューも宣言的に定義できます。
 
 ```kotlin
 class MainActivity : ComponentActivity() {
@@ -370,8 +377,7 @@ fun ContentViewPreview() {
 
 ### App Intent
 
-まだ広く普及はしていないですが、筆者が次のアプリの形として、Appleが提供するApp Intent<span class="footnote">https://developer.apple.com/documentation/AppIntents</span>の仕組みに可能性を感じています。 を利用して、直接アプリを開いて操作するのではなく、特定の要求に対してアプリ側が反応して処理をすることも可能になっています。
-ALEXAが登場した時に音声だけで操作できるならデバイスは不要になるかもと思いましたが、一気には変わりませんでした。筆者にとってのスマホの登場のように体験が一変することはなかったですが、日常に少しずつ溶け込んで変化は持続しています。App Intentでアプリを明示的に開くという体験は薄くなっていくことでしょう。その先にアプリという概念はOSに統合されて溶けていくような可能性も感じています。ここにはAIによる意図の解釈が進化を加速させると思っています。
+まだ広く普及はしていないですが、筆者が次のアプリの形として、Appleが提供するApp Intent<span class="footnote">https://developer.apple.com/documentation/AppIntents</span>の仕組みに可能性を感じています。 直接アプリを開いて操作するのではなく、特定の要求に対してアプリ側が反応して処理をすることも可能になっています。Alexaが登場した時に音声だけで操作できるならデバイスは不要になるかもと思いましたが、一気には変わりませんでした。筆者にとってのスマホの登場のように体験が一変することはなかったですが、日常に少しずつ溶け込んで変化は持続しています。App Intentでアプリを明示的に開くという体験は薄くなっていくことでしょう。その先にアプリという概念はOSに統合されて溶けていくような可能性も感じています。ここにはAIによる意図の解釈が進化を加速させると思っています。
 
 ```swift
 struct MyIntent: AppIntent {
@@ -389,7 +395,7 @@ Android側には、古くからIntentやBroadcastは存在しますが、AIやOS
 ## モバイルアプリの相互運用
 
 最後に相互運用についても触れます。ここでの相互運用とは、異なる開発言語を併用して扱うことを指しています。
-Androidでは初期からJNIの仕組みを利用して、Cライブラリとの相互運用が可能になっていました。これにより、C言語で開発していた資産を利用できていました。スマホ初期化から、iPhone／Android向けにコアのロジックをCライブラリとして共通に利用する運用は行われてきました。現在はAndroidアプリの開発言語であるKotlinがKotlin Multiplatform を提供していて、Kotlin言語で開発した資産をiPhoneにも活用できるようになり、徐々に普及してきています。またiPhone向けの開発言語は、当初Objective-CだったのがSwiftに変わり、相互運用が可能だったため、段階的な移行が可能になっていました。これはAndroidも同じで、JavaとKotlinも同様です。
+Androidでは初期からJNIの仕組みを利用して、Cライブラリとの相互運用が可能になっていました。これにより、C言語で開発していた資産を利用できていました。スマホ初期から、iPhone／Android向けにコアのロジックをCライブラリとして共通に利用する運用は行われてきました。現在はAndroidアプリの開発言語であるKotlinがKotlin Multiplatform を提供していて、Kotlin言語で開発した資産をiPhoneにも活用できるようになり、徐々に普及してきました。またiPhone向けの開発言語は、当初Objective-CだったのがSwiftに変わり、相互運用が可能であったため、段階的な移行が可能になっていました。これはAndroidも同じで、JavaとKotlinも同様です。
 
 ![モバイルアプリの相互運用](./images_kawashima/mobile_interoperability.png "モバイルアプリの相互運用"){width="360"}
 
@@ -397,7 +403,7 @@ Androidでは初期からJNIの仕組みを利用して、Cライブラリとの
 
 ## まとめ
 
-OSとハードウェア の進化が目覚ましく、モバイルアプリだからといって何か制限が課せられる部分がこの20年間で非常に小さくなっていきました。メモリやスレッドを意識してプログラミングする感覚も高度に抽象化されて宣言的な表現が可能になってきました。App Intentはアプリの存在も抽象化してOSに統合できる可能性も秘めています。プログラミングそのものが抽象化の積み重ねで、今後アプリという形は抽象化される対象になっていくのではと考えています。またそれが促進するとディスプレイが必要な場面も減っていき、現在の大きく肥大したスマートフォンデバイスの形状も形を変えていくのではという予想するのと同時にそうしていく必要がある使命感があります。
+OSとハードウェアの進化が目覚ましく、モバイルアプリだからといって何か制限が課せられる部分がこの20年間で非常に小さくなっていきました。メモリやスレッドを意識してプログラミングする感覚も高度に抽象化されて宣言的な表現が可能になってきました。App Intentはアプリの存在も抽象化してOSに統合できる可能性も秘めています。プログラミングそのものが抽象化の積み重ねで、今後アプリという形は抽象化される対象になっていくのではと考えています。またそれが促進するとディスプレイが必要な場面も減っていき、現在の大きく肥大化したスマートフォンの形状も形を変えていくのではという予想するのと同時に、そうしていく必要があると感じています。
 
 ## 参考文献
 - 鷲見豊著. プログラミングiモードJavaーiアプリの設計と開発, オライリー・ジャパン, 2001.
