@@ -85,8 +85,6 @@ fn jsons_json_in_json_article_checker(contents: &str) -> anyhow::Result<bool> {
 
 本節ではそもそもパターンマッチってなんだっけ……？というところからおさらいしたいと思います。
 
----
-
 基本としては「 `match` 式の左側に列挙するもの」という認識で大体あっています。
 
 他の言語でもあるように列挙体で分岐する場合もあれば……
