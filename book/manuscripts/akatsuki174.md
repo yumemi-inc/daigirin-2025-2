@@ -57,7 +57,7 @@ SF Symbols を使っていれば UI 言語に合わせて自動で反転対応�
 
 ![](images_akatsuki174/sf_symbols_languages.png){width=400}
 
-ちなみに矢印に関しては同じ方向を向いたアイコンが2つあります。 arrow.left は RTL 言語でも LTR 言語でも常に左向きです。名前に left がついているのでなんとなく想像がつくと思います。一方もう一つの矢印は arrow.backward という名前で、 RTL 言語か LTR 言語かによって指す方向が異なります。
+ちなみに矢印に関しては同じ方向を向いたアイコンが2つあります。 arrow.left は RTL 言語でも LTR 言語でも常に左向きです。名前に left がついているのでなんとなく想像がつくと思います。一方もう1つの矢印は arrow.backward という名前で、 RTL 言語か LTR 言語かによって指す方向が異なります。
 自分の用途に合わせてどちらがいいか選定してください。
 
 ![](images_akatsuki174/sf_symbols_arrows.png){width=400}
