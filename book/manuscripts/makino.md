@@ -7,6 +7,8 @@ class: content
   <div class="doc-author">牧野遥斗</div>
 </div>
 
+# 無料でAndroidアプリ配布サービスを構築してみたかった
+
 ## 第0章 挨拶
 
 はじめまして、26卒Androidで採用されました、牧野遥斗(はるちろ)と申します。
