@@ -9,7 +9,7 @@ class: content
 
 # iOS アプリで RTL 言語対応をする（画像編）
 
-前回のゆめみ大技林では Android アプリにおける画像の RTL（Right to Left / 右から左）対応について紹介しました。今度は iOS について紹介したいと思います。
+前回のゆめみ大技林 '25[^daigirin_25] では Android アプリにおける画像の RTL（Right to Left / 右から左）対応について紹介しました。今度は iOS について紹介したいと思います。
 
 iOS アプリでアラビア語などの RTL 記述法を使用する言語（以降、RTL 言語とする）に対応する場合、文字列だけでなくレイアウトも RTL 用に変わることになります。とはいえ大部分は OS やフレームワーク側が自動で対応してくれます。試しにシステム言語を英語にした場合、アラビア語にした場合のスクショを並べてみました。私が特に何も手を加えずともこれだけ自動対応されます。
 
@@ -24,6 +24,7 @@ iOS アプリでアラビア語などの RTL 記述法を使用する言語（�
 
 SF Symbols を使っている場合は UI 言語に応じて自動で反転しますが、その他のケースでは自動対応されません。ということで自動で行われる RTL 対応 / 手動でやるべき RTL 対応について書きたいと思います。
 
+[^daigirin_25]: ゆめみ大技林 '25 https://techbookfest.org/product/n5jRU01unxcQHkqtP6FVki?productVariantID=w2KmdN0jmXCKxhdyqpZRK
 [^human_interface_guidelines_interface-icons]: インターフェイスアイコン - Human Interface Guidelines https://developer.apple.com/jp/design/human-interface-guidelines/right-to-left#Interface-icons
 [^icons_and_symbols]: Icons and symbols - Material Design 3 https://m3.material.io/foundations/layout/understanding-layout/bidirectionality-rtl
 
