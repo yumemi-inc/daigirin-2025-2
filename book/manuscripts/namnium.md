@@ -34,7 +34,7 @@ Rustのソースコードはしばしばアートのように振る舞います�
 
 [^linkoriginal]: <https://qiita.com/namn1125/items/4845aaa6ee19eaf8081b>
 
-今年の6月、 Rust 1.88 がリリースされました ＼(^o^)／ ＼(^o^)／ (ちなみに現在の最新は 1.90.0 です  )
+今年2025年の6月、 Rust 1.88 がリリースされました ＼(^o^)／ ＼(^o^)／ (ちなみに執筆時である2025年10月現在の最新は 1.90.0 です)
 
 - Announcing Rust 1.88.0 | Rust Blog [^linkannouncing]
 - Rust 1.88を早めに深掘り - あずんひの日 [^linkhukabori]
