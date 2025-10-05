@@ -81,6 +81,7 @@ Both を選択するとこのように両方の画像を設定できるように
 
 今回は iOS アプリを RTL 言語対応する時に発生する画像周りの処理について書いてみました。前回の Android の場合に比べるとわりとすんなり対応できるかなという印象です。
 
-今回の話は公式情報で言うと WWDC22 の Get it right (to left)[^get_it_right_to_left] にて話されているので、ぜひちらも参考にしてみてください。
+今回の話は公式情報で言うと WWDC22 の「Get it right (to left)[^get_it_right_to_left] 」にて話されていますし、私がまとめたものだと iOSDC Japan 2025 の「逆向き UI の世界 〜 iOS アプリの RTL 言語対応〜[^support_rtl_in_ios_app]」にて扱っているので、ぜひそちらも参考にしてみてください。
 
 [^get_it_right_to_left]: Get it right (to left) https://developer.apple.com/jp/videos/play/wwdc2022/10107/
+[^support_rtl_in_ios_app]: 逆向き UI の世界 〜 iOS アプリの RTL 言語対応〜 https://speakerdeck.com/akatsuki174/ni-xiang-kiuinoshi-jie-iosapurinortlyan-yu-dui-ying
