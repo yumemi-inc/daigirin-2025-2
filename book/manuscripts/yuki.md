@@ -35,7 +35,7 @@ Web向けビルドではデフォルトでCanvasKit（SkiaベースのWebAssembl
 ## ローカルステート管理
 
 まずはサンプルアプリとしておなじみの「カウンターアプリ」を例にします。
-Reactでは宣言的なUIと単方向データフローを使って、シンプルかつ直感的に状態管理を記述できます。
+Reactでは宣言的なUIと単方向データフローを使って、シンプルかつ直感的にステート管理を記述できます。
 
 ```jsx
 import { useState } from "react";
@@ -74,8 +74,8 @@ class _CounterState extends State<Counter> {
 }
 ```
 
-Reactに比べると記述がやや冗長に感じられるかもしれません。次に紹介する、`flutter_hooks`という状態管理ライブラリを利用すればReactに近くなります。
-これはReact Hooksに着想を得たライブラリで、`useState`や`useEffect`などReactに馴染みのある書き方でFlutterの状態管理を記述できます。
+Reactに比べると記述がやや冗長に感じられるかもしれません。次に紹介する、`flutter_hooks`というステート管理ライブラリを利用すればReactに近くなります。
+これはReact Hooksに着想を得たライブラリで、`useState`や`useEffect`などReactに馴染みのある書き方でFlutterのステート管理を記述できます。
 
 ```dart
 import 'package:flutter/material.dart';
@@ -120,7 +120,7 @@ const UserSchema = v.object({
   avatar_url: v.string(),
 });
 
-// グローバル状態管理を定義する
+// グローバルステート管理を定義する
 const githubUserAtomFamily = atomFamily((username: string) =>
   atom(async () => {
     const res = await fetch(`https://api.github.com/users/${username}`);
@@ -167,7 +167,7 @@ abstract class User with _$User {
   factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);
 }
 
-// グローバル状態管理を定義する
+// グローバルステート管理を定義する
 @riverpod
 Future<User> getGithubUser(Ref ref, String username) async {
   final url = Uri.parse('https://api.github.com/users/$username');
@@ -192,7 +192,7 @@ class GithubUser extends ConsumerWidget {
 ```
 
 このコードでは`Freezed`で型安全なデータクラスを定義しています。
-`Freezed`はデータクラスを自動生成するライブラリで、型安全な状態管理やシリアライズを簡単に実現できます。
+`Freezed`はデータクラスを自動生成するライブラリで、型安全なステート管理やシリアライズを簡単に実現できます。
 次に、`Riverpod`を使用しユーザーごとに独立した状態(Provider)を作っています。
 UI側では`ref.watch`を使ってProviderを監視し、Dart 3から導入された`switch`式で状態を網羅的に分岐しています。
 これにより「型で保証された非同期処理のハンドリング」が可能になり、Reactの`loadable`と同じような記述をより堅牢に実現できます。
