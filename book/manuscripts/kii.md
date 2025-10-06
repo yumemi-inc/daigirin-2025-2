@@ -35,7 +35,7 @@ class: content
 
 ### 実行環境
 ソースコードはすべて JavaScript で実装しており、 Node.js で実行しています（使用しているライブラリが Node.js 依存のため）。動作確認は Node.js `v20.18.0` で行っております。作成したクワインは GitHub 上で公開してあります。[^3]
-コードを試す場合は、`Node.js` をインストールして実行する。もしくは、 Web 上の Node.js 実行環境をお試しください。
+コードを試す場合は、`Node.js` をインストールして実行してください。もしくは、 Web 上の Node.js 実行環境をお試しください。
 Web 上の Node.js 実行環境には次のようなものがあります。
 
 - [Node.js Playground StackBlitz](https://stackblitz.com/edit/node-99aw1w)
