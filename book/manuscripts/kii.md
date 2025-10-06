@@ -38,8 +38,8 @@ class: content
 コードを試す場合は、`Node.js` をインストールして実行してください。もしくは、 Web 上の Node.js 実行環境をお試しください。
 Web 上の Node.js 実行環境には次のようなものがあります。
 
-- [Node.js Playground StackBlitz](https://stackblitz.com/edit/node-99aw1w)
-- [Paiza.IO](https://paiza.io/ja/projects/new)
+- "Node.js Playground StackBlitz", <https://stackblitz.com/edit/node-99aw1w>
+- "Paiza.IO", <https://paiza.io/ja/projects/new>
 
 [^1]: AA とはアスキーアートのことであり、文字のみを使って絵や図形を表現したもの。
 [^2]: shopon, "JavaScriptでAA Quine入門", <https://shoponpon.hatenablog.com/entry/2019/12/01/121046>
