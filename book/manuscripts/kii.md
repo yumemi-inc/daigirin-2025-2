@@ -30,9 +30,16 @@ class: content
 今回は、その中でも AA のクワインを題材にします。
 冒頭の例のようにソースコードの見た目が何かを表しているのはなかなか不思議ですが仕組みはいたってシンプルです。
 このような AA クワインをどうやって作成するのか解説していきます。
-なお、ソースコードはすべて JavaScript で実装します。作成したクワインは GitHub 上で公開してあります。[^3]
 
 今回のクワインの作成に関して shopon 様の [JavaScriptでAA Quine入門](https://shoponpon.hatenablog.com/entry/2019/12/01/121046) [^2] という記事を大変参考にさせていただきました。
+
+### 実行環境
+ソースコードはすべて JavaScript で実装しており、 Node.js で実行しています（使用しているライブラリが Node.js 依存のため）。動作確認は Node.js `v20.18.0` で行っております。作成したクワインは GitHub 上で公開してあります。[^3]
+コードを試す場合は、`Node.js` をインストールして実行する。もしくは、 Web 上の Node.js 実行環境をお試しください。
+Web 上の Node.js 実行環境には次のようなものがあります。
+
+- [Node.js Playground StackBlitz](https://stackblitz.com/edit/node-99aw1w)
+- [Paiza.IO](https://paiza.io/ja/projects/new)
 
 [^1]: AA とはアスキーアートのことであり、文字のみを使って絵や図形を表現したもの。
 [^2]: shopon, "JavaScriptでAA Quine入門", <https://shoponpon.hatenablog.com/entry/2019/12/01/121046>
@@ -68,9 +75,10 @@ AA クワインはいくつかのパートを組み合わせて作成されて�
 ```
 
 ### AA を圧縮
-![Yumemi AA](./images_kii/yumemi_AA.png)
+まず、元となる AA を用意します。後で AA にソースコードをマッピングしていきます。そのため、マッピングしやすいように `1` と空白のみで構成された AA を使います。JavaScript 的に意味のある文字だと処理が大変になるため `1` で構成しています。
+今回使用する AA はこちらです。
 
-これはマッピングのために `1` と空白のみで構成された AA です。JavaScript 的に意味のある文字だと処理が大変になるため `1` で構成しています。
+![Yumemi AA](./images_kii/yumemi_AA.png)
 
 次に、この AA をそのままソースコードに入れたいところですが、ソースコードが AA の長さを超えると成立しないので圧縮します。
 参考までに、クワインを作成するためには AA に対してクワインに変換する関数 F を適用させます。
