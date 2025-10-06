@@ -14,6 +14,8 @@ module.exports = {
     // はじめに
     'preface.md',
     // 各章の原稿
+    'motsu-keyboard.md', // サンプル用ページです。執筆時は削除してください。
+
     'uutan1108/index.md',
     'mikai.md',
     'emoto.md',
