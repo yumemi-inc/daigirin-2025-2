@@ -399,8 +399,6 @@ Androidには、当初からIntent<span class="footnote">明示的にアプリ�
 
 Androidでは初期からJNI<span class="footnote">Java Native Interface これによって、JVMで実行されるJavaコードが C、C++、アセンブリ言語など他のプログラミング言語で書かれたアプリケーションやライブラリと相互運用できるようになります。  https://docs.oracle.com/javase/jp/1.5.0/guide/jni/spec/intro.html https://developer.android.com/ndk/guides/build</span>を利用して、Cライブラリとの相互運用が可能になっていました。これにより、C言語で開発していた資産を利用できていました。スマホ初期から、iPhone／Android向けにコアのロジックをCライブラリとして共通利用する運用は行われてきました。現在はAndroidアプリの開発言語であるKotlinがKotlin Multiplatform を提供していて、Kotlin言語で開発した資産をiPhoneにも活用できるようになり、徐々に普及してきました。現時点では、図で示されるようにObjective-Cライブラリとして生成されます。執筆時点でExperimentalですが、Swift Export<span class="footnote">Kotlin MultiplatformからSwiftコードを生成し、Objective-Cヘッダーが不要になり、Swiftとして呼び出せるようになります。 Interoperability with Swift using Swift export https://kotlinlang.org/docs/native-swift-export.html</span>も進んできて、Swiftライブラリとしての利用が可能になりつつあります。一方で、Swift側からもJavaとの相互運用を実現するためのプロジェクトswift-java<span class="footnote">https://github.com/swiftlang/swift-java</span>も、Experimental段階ながら進行中です。
 
- <hr class="page-break" />
-
 このテーマについては、前号の『ゆめみ大技林 '25』に「Swift と Java の相互運用」というタイトルで寄稿しています。
 
 ![ゆめみ大技林 '25のQRコード](./images_kawashima/qr_daigirin.png "ゆめみ大技林 '25のQRコード")
@@ -410,8 +408,6 @@ iPhone向けの開発言語は、当初Objective-Cでしたが、Swiftに変わ�
 ## まとめ
 
 OSとハードウェアの進化が目覚ましく、モバイルアプリだからといって何か制限が課せられる部分がこの二十年間で非常に小さくなっていきました。メモリやスレッドを意識してプログラミングする感覚も高度に抽象化されて宣言的な表現が可能になってきました。App Intentはアプリの存在も抽象化してOSに統合できる可能性も秘めています。プログラミングそのものが抽象化の積み重ねで、今後アプリという形は抽象化される対象になっていくのではと考えています。またそれが促進するとディスプレイが必要な場面も減っていき、現在の大きく肥大化したスマートフォンの形状も形を変えていくのではと予想するのと同時に、そうしていく必要があると感じています。
-
-<hr class="page-break" />
 
 ## 参考文献
 - 鷲見豊著. プログラミングiモードJavaーiアプリの設計と開発, オライリー・ジャパン, 2001.
