@@ -39,7 +39,8 @@ class: content
 Web 上の Node.js 実行環境には次のようなものがあります。
 
 - "Node.js Playground StackBlitz", <https://stackblitz.com/edit/node-99aw1w>
-- "Paiza.IO", <https://paiza.io/ja/projects/new>
+- "Paiza.IO", <https://paiza.io/ja/projects/new> <br>
+  Paiza では実行するプログラムの言語を選択します。デフォルトだと Python なので JavaScript に変更します。
 
 [^1]: AA とはアスキーアートのことであり、文字のみを使って絵や図形を表現したもの。
 [^2]: shopon, "JavaScriptでAA Quine入門", <https://shoponpon.hatenablog.com/entry/2019/12/01/121046>
