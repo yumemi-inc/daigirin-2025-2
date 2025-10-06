@@ -14,6 +14,8 @@ module.exports = {
     // はじめに
     'preface.md',
     // 各章の原稿
+    'uutan1108/index.md',
+    'mikai.md',
     'emoto.md',
     'kii.md',
 
