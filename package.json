@@ -13,26 +13,23 @@
     "open": "open ./book/output/ebook.pdf",
     "clean": "rm -rf ./book/output/",
     "cover": "node ./scripts/InsertCoverImage.js",
-    "preinstall": "npx only-allow yarn",
     "check": "biome check",
-    "check-write": "biome check --write"
+    "check-write": "biome check --write",
+    "install:safe-chain": "npm install -g @aikidosec/safe-chain@1.0.24 && safe-chain setup && ./scripts/relogin.sh",
+    "uninstall:safe-chain": "safe-chain teardown && npm uninstall -g @aikidosec/safe-chain && ./scripts/relogin.sh"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.1.1",
-    "@textlint-ja/textlint-rule-preset-ai-writing": "^1.5.0",
-    "@vivliostyle/cli": "9.3.3",
+    "@biomejs/biome": "2.2.4",
+    "@textlint-ja/textlint-rule-preset-ai-writing": "^1.6.1",
+    "@vivliostyle/cli": "9.4.0",
     "npm-run-all2": "^8.0.4",
     "pdf-lib": "^1.17.1",
-    "textlint": "^15.2.0",
+    "textlint": "^15.2.2",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-preset-ja-spacing": "^2.3.0",
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
     "textlint-rule-prh": "^6.1.0",
     "textlint-rule-spellcheck-tech-word": "^5.0.0"
   },
-  "packageManager": "yarn@4.9.2",
-  "engines": {
-    "yarn": "4.9.2",
-    "npm": "please-use-yarn"
-  }
+  "packageManager": "yarn@4.10.3"
 }
