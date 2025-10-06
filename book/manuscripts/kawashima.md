@@ -124,7 +124,7 @@ class ContentView extends Canvas {
 
 ### EZアプリ（BREW）
 
-Javaと見比べるとSDKではなく、プログラムとして記述が必要な範囲が広いです。まずエントリ・ポイントでBREWアプリ（＝`AEEApplet`）に対してメモリを割り当てます。そうすると、システム側からイベントハンドラが呼ばれるので、そこでテキストを描画するフローになっています。筆者自身は当時BREWアプリの開発に関わったことはなく、書籍とサンプルリポジトリ<span class="footnote">Software Development for the QUALCOMM BREW Platform https://github.com/Apress/software-dev-for-qualcomm-brew-platform</span>を参考に、当時の実装構造を再現しています。
+Javaと見比べるとSDKではなく、プログラムとして記述が必要な範囲が広いです。まずエントリ・ポイントでBREWアプリの実態となる `AEEApplet` に対してメモリを割り当てます。システム側からイベントハンドラが定期的に呼ばれ、イベントハンドラの中ではディスプレイへの参照を示す `pIDisplay` に対してテキストの描画を指示して、画面にテキストが表示される流れになっています。筆者自身は当時BREWアプリの開発に関わったことはなく、書籍と現存するサンプルリポジトリ<span class="footnote">Software Development for the QUALCOMM BREW Platform https://github.com/Apress/software-dev-for-qualcomm-brew-platform</span>を参考に、当時の実装構造を再現しています。
 
 ```c
 // イベントハンドラの定義
