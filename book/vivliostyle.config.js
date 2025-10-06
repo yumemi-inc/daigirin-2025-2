@@ -19,6 +19,7 @@ module.exports = {
     'uutan1108/index.md',
     'mikai.md',
     'emoto.md',
+    'lovee.md',
     'kii.md',
     'akatsuki174.md',
     'kitaji0306.md',
