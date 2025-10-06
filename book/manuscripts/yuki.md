@@ -108,7 +108,7 @@ Reactでは「関数の実行」で状態の更新を通知しますが、Flutte
 違いとして、`Riverpod`はDartの型安全性やコード生成を活用でき、依存関係の追跡や非同期処理をより明示的に扱えるのが特徴です。
 
 まずはReact（Jotai + Valibot）でGitHub APIを呼び出すサンプルを見てみましょう。
-Jotai は軽量な状態管理、Valibot はデータの型とバリデーションを定義するライブラリです。
+Jotai は軽量なステート管理、Valibot はデータの型とバリデーションを定義するライブラリです。
 `atomFamily`で「ユーザー名ごと」の状態を作り、`loadable`で非同期状態を安全に扱います。
 
 ```jsx
@@ -273,9 +273,9 @@ PGP Fingerprint: EAB5 AF5A A7ED 7A16 C402  7B52 83A8 A5E7 4872 A8AA
 ```key
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTqta9ap+16FsQCe1KDqKXnSHKoqgUCaOKvgwAKCRCDqKXnSHKo
-qseTAP4rGmf3gAv4f0qr8nNsyhqmo4ieesdrLGWx+HZruCgnRAEAgkQnnQhFUTUU
-SCNKcR5U71Gbr5p8HEK3olaTJIg7jAI=
-=vGGH
+iHUEABYKAB0WIQTqta9ap+16FsQCe1KDqKXnSHKoqgUCaOMlsQAKCRCDqKXnSHKo
+qj+RAP9/YoE66Zc1PdW1jkwCY1uhAz2h+eYn3cpWG5+ULoUzOAD/ZqrzMGYeS2OS
+iS1iGpgfcWePbRa/aV4yIv8n94rkMgI=
+=a5ff
 -----END PGP SIGNATURE-----
 ```
