@@ -14,23 +14,22 @@ module.exports = {
     // はじめに
     'preface.md',
     // 各章の原稿
-    'motsu-keyboard.md', // サンプル用ページです。執筆時は削除してください。
-    'narawa.md',
-    'uutan1108/index.md',
-    'mikai.md',
-    'emoto.md',
-    'kawashima.md',
-    'lovee.md',
-    'kii.md',
     'akatsuki174.md',
-    'kitaji0306.md',
-    'molpui.md',
-    'namnium.md',
-    'usami.md',   
     'makino.md',
     'yuki.md',
-    // 会社紹介（必要なら以下をアンコメントして利用、掲載時は頒布イベントの出展要項に注意）
-    // 'yumemi.md',
+    'usami.md',
+    'namnium.md',
+    'uutan1108/index.md',
+    'molpui.md',
+    'kii.md',
+    'emoto.md',
+    'kawashima.md',
+    'mikai.md',
+    'kitaji0306.md',
+    'narawa.md',
+    'motsu-keyboard.md',
+    'lovee.md',
+
     // 著者紹介
     'authors.md',
     // 奥付
