@@ -4,7 +4,7 @@ class: content
 
 <div class="doc-header">
   <div class="doc-title">Reactエンジニア向けFlutter入門</div>
-  <div class="doc-author">ふぁ（@faa0311）</div>
+  <div class="doc-author">ふぁ</div>
 </div>
 
 # Reactエンジニア向けFlutter入門
@@ -273,9 +273,9 @@ PGP Fingerprint: EAB5 AF5A A7ED 7A16 C402  7B52 83A8 A5E7 4872 A8AA
 ```key
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTqta9ap+16FsQCe1KDqKXnSHKoqgUCaOMlsQAKCRCDqKXnSHKo
-qj+RAP9/YoE66Zc1PdW1jkwCY1uhAz2h+eYn3cpWG5+ULoUzOAD/ZqrzMGYeS2OS
-iS1iGpgfcWePbRa/aV4yIv8n94rkMgI=
-=a5ff
+iHUEABYKAB0WIQTqta9ap+16FsQCe1KDqKXnSHKoqgUCaOSxSwAKCRCDqKXnSHKo
+qprQAP4lMujExxY+8v2amWs8NmjiwkxS7mP/+p3J2TplIltuyQD/XjC9Zm2c6a+y
+7gn/jno1V/X2wP3yksb3GV6YRSSJ9AA=
+=Oddj
 -----END PGP SIGNATURE-----
 ```

@@ -12,9 +12,9 @@ iOS/Android/Flutterなど雑多にやるモバイルエンジニア。プライ�
 
 26卒のAndroidエンジニア。IoT周りなどに興味があります！
 
-### ふぁ（@faa0311）（Reactエンジニア向けFlutter入門）
+### ふぁ（Reactエンジニア向けFlutter入門）
 
-25卒Flutterエンジニア OSSが好き
+25卒Flutterエンジニア。OSSが好き。Twitter: [@faa0311](https://x.com/faa0311)
 
 <!-- markdownlint-disable MD041 -->
 <hr class="page-break" />

@@ -12,7 +12,7 @@ class: exclude-hashira
 1. [ゆめみ大技林製作委員会とは](preface.html)
 1. [iOS アプリで RTL 言語対応をする（画像編） | akatsuki174](akatsuki174.html)
 1. [無料でAndroidアプリ配布サービスを構築してみたかった | 牧野遥斗](makino.html)
-1. [Reactエンジニア向けFlutter入門 | ふぁ（@faa0311）](yuki.html)
+1. [Reactエンジニア向けFlutter入門 | ふぁ](yuki.html)
 1. [Rust Bevy を使った数理シミュレーション実装に AI エージェントを活用する | 宇佐見公輔](usami.html)
 1. [Rustのパターンマッチってアートだヨネ | namnium](namnium.html)
 1. [PHP で始める振る舞い駆動開発 | うーたん（@uutan1108）](uutan1108/index.html)
