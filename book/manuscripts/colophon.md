@@ -6,11 +6,12 @@ class: exclude-hashira
 <hr class="page-break" />
 <!-- markdownlint-enable MD041 -->
 
-<section class="colophon">
+<section class="colophon-section">
+<div class="colophon-page">
 
-## ゆめみ大技林 <!--'23-->
+## ゆめみ大技林 '25 (2)
 
-<!--2023年5月15日--> 初版
+2025年10月26日 初版
 
 ---
 
@@ -21,11 +22,11 @@ class: exclude-hashira
   </div>
   <div class="colophon-row">
     <div class="colophon-label">表紙</div>
-    <div class="colophon-value"><!-- 吉森由之助 --></div>
+    <div class="colophon-value">吉森由之助</div>
   </div>
   <div class="colophon-row">
     <div class="colophon-label">印刷</div>
-    <div class="colophon-value"><!-- 日光企画 --></div>
+    <div class="colophon-value">日光企画</div>
   </div>
   <div class="colophon-row">
     <div class="colophon-label">連絡先</div>
@@ -37,8 +38,9 @@ class: exclude-hashira
 
 <!-- textlint-disable ja-technical-writing/ja-no-mixed-period -->
 
-© <!--2023--> ゆめみ大技林製作委員会
+© 2025 ゆめみ大技林製作委員会
 
 <!-- textlint-enable: ja-technical-writing/ja-no-mixed-period -->
 
+</div>
 </section>

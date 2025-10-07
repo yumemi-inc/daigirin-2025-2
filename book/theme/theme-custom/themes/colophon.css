@@ -2,6 +2,16 @@
  奥付け用のカラム表示
  */
 
+.colophon-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.colophon-page {
+  margin-top: auto;
+}
+
 .colophon-container {
     display: grid;
     grid-template-columns: max-content auto;

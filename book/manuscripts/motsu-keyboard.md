@@ -84,3 +84,8 @@ class: content
  - 値段が市販品よりも高いものが多い
  - レイヤー機能やMod tap等の機能への慣れが必要
  - はんだづけが必要になるので時間と手間がかかる
+
+<!-- markdownlint-disable MD009 MD041 -->
+<hr class="page-break" />
+　
+<!-- markdownlint-enable MD009 MD041 -->

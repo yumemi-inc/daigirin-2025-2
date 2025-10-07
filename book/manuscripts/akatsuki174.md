@@ -85,3 +85,8 @@ Both を選択するとこのように両方の画像を設定できるように
 
 [^get_it_right_to_left]: Get it right (to left) https://developer.apple.com/jp/videos/play/wwdc2022/10107/
 [^support_rtl_in_ios_app]: 逆向き UI の世界 〜 iOS アプリの RTL 言語対応〜 https://speakerdeck.com/akatsuki174/ni-xiang-kiuinoshi-jie-iosapurinortlyan-yu-dui-ying
+
+<!-- markdownlint-disable MD009 MD041 -->
+<hr class="page-break" />
+　
+<!-- markdownlint-enable MD009 MD041 -->

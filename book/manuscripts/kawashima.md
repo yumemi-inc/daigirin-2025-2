@@ -3,7 +3,7 @@ class: content
 ---
 
 <div class="doc-header">
-  <h1>モバイルアプリのこれから</h1>
+  <div class="doc-title">モバイルアプリのこれから</div>
   <div class="doc-author">川島慶之</div>
 </div>
 

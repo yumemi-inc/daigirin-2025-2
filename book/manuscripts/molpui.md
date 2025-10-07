@@ -296,6 +296,10 @@ https://drive.google.com/drive/folders/1hkFd396U0KZsbiNAD6lsFeX2MSkv7pCg?usp=dri
 
 [^審査規約]: ET ロボコン実行委員会, ET ロボコン 2025 審査規約 1.0 版, <https://docs.etrobo.jp/rules/2025/ETRC2025_dev_shinsa_rules_V1.0.pdf>, 最終アクセス日：2025/09/30
 
+<!-- markdownlint-disable MD009 MD041 -->
+<hr class="page-break" />　
+<!-- markdownlint-enable MD009 MD041 -->
+
 ## まとめ
 
 AI がモデリング言語話者になりえるかを考えた結果、少なくとも現在は難しい場合がほとんどであるという結論になりました。
@@ -311,4 +315,7 @@ AI に仕様を決めさせるのは、モデリングから逸脱していま�
 モデリング言語話者になったとして、モデルの品質が向上するかどうかは、別に課題がありそうです。
 現時点で、AI が品質を保証できない設計の分野は、人間が活躍できる分野のひとつであると考えています。
 
-
+<!-- markdownlint-disable MD009 MD041 -->
+<hr class="page-break" />
+　
+<!-- markdownlint-enable MD009 MD041 -->
